@@ -1,0 +1,101 @@
+package fr.lma.pingpong;
+
+import java.util.ArrayList;
+
+public abstract class Tournoi implements Comparable<Tournoi> {
+
+    // Attributs
+    private String dateDebut;
+    private String dateFin;
+    private ArrayList<Match> matchs;
+    private Stade stade;
+
+    // Constructeurs
+    public Tournoi(String p_dateDebut, String p_dateFin) {
+        this(p_dateDebut, p_dateFin, new ArrayList<>(), null);
+    }
+
+    public Tournoi(String p_dateDebut, String p_dateFin, ArrayList<Match> p_matchs, Stade p_stade) {
+        this.dateDebut = p_dateDebut;
+        this.dateFin = p_dateFin;
+        this.matchs = p_matchs;
+        this.stade = p_stade;
+    }
+
+    // Accesseurs
+
+    // Getter
+
+    public String getDateDebut() {
+        return this.dateDebut;
+    }
+
+    public String getDateFin() {
+        return this.dateFin;
+    }
+
+    public ArrayList<Match> getMatchs() {
+        return this.matchs;
+    }
+
+    public Match getMatchByIndex(int i) {
+        return this.matchs.get(i);
+    }
+
+    public Stade getStade() {
+        return stade;
+    }
+
+    // Setter
+    public void setDateDebut(String p_dateDebut) {
+        this.dateDebut = p_dateDebut;
+    }
+
+    public void setDateFin(String p_dateFin) {
+        this.dateFin = p_dateFin;
+    }
+
+    public void setMatchs(ArrayList<Match> p_matchs) {
+        this.matchs = p_matchs;
+    }
+
+    public void ajouterMatch(Match m) {
+        this.matchs.add(m);
+    }
+
+    public void setStade(Stade p_stade) {
+        this.stade = p_stade;
+    }
+
+    // Autres méthodes
+
+    // Comparable
+    /**
+     * @desc Permet la comparaison de deux instances de Tournoi
+     * @param o Tournoi
+     * @return int
+     */
+    @Override
+    public int compareTo(Tournoi o) {
+        int distance;
+        distance = compareDate(this.getDateDebut(),o.getDateDebut());
+        if (distance == 0) {
+            distance = compareDate(this.getDateFin(),o.getDateFin());
+        }
+        return distance;
+    }
+
+    private int compareDate(String d1, String d2) {
+        int distance;
+        String[] Date1JMA = d1.split("/");
+        String[] Date2JMA = d2.split("/");
+        distance = Integer.parseInt(Date1JMA[2]) - Integer.parseInt(Date2JMA[2]); // Comparaison année
+        if (distance == 0) {
+            distance = Integer.parseInt(Date1JMA[1]) - Integer.parseInt(Date2JMA[1]); // Comparaison mois
+            if (distance == 0) {
+                distance = Integer.parseInt(Date1JMA[0]) - Integer.parseInt(Date2JMA[0]); // Comparaison jour
+            }
+        }
+        return distance;
+    }
+}
