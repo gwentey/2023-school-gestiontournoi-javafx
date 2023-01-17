@@ -10,9 +10,10 @@ public class Ville {
     public Ville(){
         this("","");
     }
-    public Ville(String codePostal, String nom) {
-        this.codePostal = codePostal;
-        this.nom = nom;
+
+    public Ville(String p_codePostal, String p_nom) {
+        this.codePostal = p_codePostal;
+        this.nom = p_nom;
     }
 
     // Accesseurs
