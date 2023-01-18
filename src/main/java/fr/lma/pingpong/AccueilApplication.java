@@ -3,9 +3,11 @@ package fr.lma.pingpong;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class AccueilApplication extends Application {
     @Override
@@ -14,6 +16,7 @@ public class AccueilApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
 
         stage.setTitle("Ping Pong - Gestion");
+        stage.getIcons().add(new Image(Objects.requireNonNull(AccueilApplication.class.getResourceAsStream("img/ping-pong.png"))));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
