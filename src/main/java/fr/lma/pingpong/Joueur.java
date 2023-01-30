@@ -24,7 +24,6 @@ public class Joueur {
         return prenom;
     }
 
-
     // Setter
     public void setNom(String nom) {
         this.nom = nom;

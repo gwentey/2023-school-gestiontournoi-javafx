@@ -1,8 +1,12 @@
 package fr.lma.pingpong;
 
+import com.google.gson.Gson;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public abstract class Tournoi implements Comparable<Tournoi> {
+public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
 
     // Attributs
     private String dateDebut;
@@ -97,5 +101,18 @@ public abstract class Tournoi implements Comparable<Tournoi> {
             }
         }
         return distance;
+    }
+
+    @Override
+    public void enregistrer() {
+        String path = "..../ressources/fr/lma/pingpong/joueurs.json";
+
+        try (PrintWriter out = new PrintWriter(new FileWriter(path))) {
+            Gson gson = new Gson();
+            String jsonString = gson.toJson(this);
+            out.write(jsonString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
