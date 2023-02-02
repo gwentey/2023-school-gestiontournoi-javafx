@@ -12,16 +12,20 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
     private String nom;
     private String dateDebut;
     private String dateFin;
+    private int nbJoueurs;
     private ArrayList<Match> matchs;
-    private Stade stade;
+    private String stade;
+    private String ville;
 
     // Constructeurs
-    public Tournoi(String p_nom, String p_dateDebut, String p_dateFin, ArrayList<Match> p_matchs, Stade p_stade) {
+    public Tournoi(String p_nom, String p_dateDebut, String p_dateFin, int p_nbJoueurs, ArrayList<Match> p_matchs, String p_stade, String p_ville) {
         this.nom = p_nom;
         this.dateDebut = p_dateDebut;
         this.dateFin = p_dateFin;
+        this.nbJoueurs = p_nbJoueurs;
         this.matchs = p_matchs;
         this.stade = p_stade;
+        this.ville = p_ville;
     }
 
     // Accesseurs
@@ -40,6 +44,10 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         return this.dateFin;
     }
 
+    public int getNbJoueurs() {
+        return this.nbJoueurs;
+    }
+
     public ArrayList<Match> getMatchs() {
         return this.matchs;
     }
@@ -48,8 +56,12 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         return this.matchs.get(i);
     }
 
-    public Stade getStade() {
-        return stade;
+    public String getStade() {
+        return this.stade;
+    }
+
+    public String getVille() {
+        return this.ville;
     }
 
     // Setter
@@ -66,6 +78,10 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         this.dateFin = p_dateFin;
     }
 
+    public void setNbJoueurs(int p_nbJoueurs)  {
+        this.nbJoueurs = p_nbJoueurs;
+    }
+
     public void setMatchs(ArrayList<Match> p_matchs) {
         this.matchs = p_matchs;
     }
@@ -74,16 +90,20 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         this.matchs.add(m);
     }
 
-    public void setStade(Stade p_stade) {
+    public void setStade(String p_stade) {
         this.stade = p_stade;
+    }
+
+    public void setVille(String p_ville) {
+        this.ville = p_ville;
     }
 
     // Autres méthodes
 
     // Comparable
     /**
-     * @desc Permet la comparaison de deux instances de Tournoi
-     * @param o Tournoi
+     * Permet la comparaison de deux instances de Tournoi
+     * @param o  à comparer
      * @return int
      */
     @Override

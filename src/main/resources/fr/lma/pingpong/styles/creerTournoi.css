@@ -1,3 +1,12 @@
+* {
+    -fx-primary-color: #36393F;
+    -fx-secondary-color: #007acc;
+    -fx-grey-color: #b9b9b9;
+    -fx-focus-color: -fx-secondary-color;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+}
+
 .background{
     -fx-background-color: #36393F;
 }
@@ -11,23 +20,89 @@
     -fx-background-color: #42464D;
 }
 
-.textField{
-    -fx-primary-color: #007acc;
-    -fx-secondary-color: #4B6EAF;
-    -fx-grey-color: #b9b9b9;
-
+.textField {
     -fx-focus-color: -fx-secondary-color;
-
     -fx-accent: -fx-primary-color;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-background-radius: 0;
-    -fx-background-color: -fx-secondary-color, #36393F;
-    -fx-text-fill: white;
-
-
+    -fx-background-color: -fx-secondary-color, -fx-primary-color;
 }
+
 .textField:focused {
     -fx-background-insets: 0, 0 0 2 0;
-    -fx-background-color: -fx-primary-color, #36393F;
+    -fx-background-color: -fx-secondary-color, -fx-primary-color;
 }
 
+.datePicker {
+    -fx-control-inner-background: -fx-primary-color;
+    -fx-background-color: -fx-primary-color;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-border-color: #007acc;
+}
+
+.table-view, .table-view-column {
+    -fx-focus-color: -fx-secondary-color;
+    -fx-background-insets: 0, 1;
+    -fx-background-color: -fx-secondary-color, #36393F;
+}
+
+.table-view-column{
+    -fx-background-color: #18191C;
+}
+
+tableCell {
+    -fx-border-width: 0;
+    -fx-control-inner-background: -fx-primary-color;
+}
+
+#addJoueur {
+    -fx-padding: 20;
+}
+
+
+
+/*
+/!\ A REGROUPER D'URGENCE /!\
+CSS DE L'ENFER DE LA SCROLL BARRE
+(ne marche pas .-.)
+*/
+
+.scrollPane{
+    -fx-border-color:derive(gray,80%);
+    -fx-background-color: #42464D;
+}
+
+.scrollPane .scroll-bar:horizontal,
+.scrollPane .scroll-bar:vertical{
+    -fx-background-color: transparent;
+}
+
+.scrollPane .scroll-bar .thumb:hover,
+.scrollPane .scroll-bar .thumb:pressed{
+    -fx-background-color: derive(#18191C,50%);
+}
+
+.scrollPane .increment-button ,
+.scrollPane .decrement-button {
+    -fx-background-color:transparent;
+    -fx-border-color:derive(transparent,80%);
+    -fx-padding:4px;
+}
+
+.scrollPane .scroll-bar:horizontal .track,
+.scrollPane .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(transparent,80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+
+.scrollPane .scroll-bar:horizontal .thumb,
+.scrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(#18191C,80%);
+    -fx-background-insets: 2, 0, 0;
+}
+.scrollPane .scroll-bar .thumb:hover,
+.scrollPane .scroll-bar .thumb:pressed{
+    -fx-background-color: derive(#18191C,100%);
+}
