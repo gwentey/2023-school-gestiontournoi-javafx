@@ -30,6 +30,8 @@ public class AffichageTournoiController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tournoi t = AccueilApplication.tournoiActuel;
+        dateDebut.setValue(t.getDateDebut());
+        dateFin.setValue(t.getDateFin());
         ville.setText(t.getVille());
         nomTournois.setText(t.getNom());
         stade.setText(t.getStade());
