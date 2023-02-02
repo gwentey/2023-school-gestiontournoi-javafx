@@ -81,11 +81,6 @@ public class CreerTournoiController {
                     stade.getText(),
                     ville.getText());
             AccueilApplication.tournoiActuel = tournoi;
-
         }
-        System.out.println(tournoi.getDateDebut());
-        System.out.println(tournoi.getDateFin());
-        System.out.println(dateDebutTournoi.getValue());
-        System.out.println(dateFinTournoi.getValue());
     }
 }
