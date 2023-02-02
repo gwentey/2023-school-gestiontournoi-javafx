@@ -7,10 +7,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class AffichageTournoiController implements Initializable {
+public class AffichageTournoi8Controller implements Initializable {
 
     @FXML
     private DatePicker dateDebut;

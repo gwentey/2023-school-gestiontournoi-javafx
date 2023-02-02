@@ -71,7 +71,7 @@ public class CreerTournoiController {
                     stade.getText(),
                     ville.getText());
             AccueilApplication.tournoiActuel = tournoi;
-            AccueilApplication.setFXMLForStage("affichageTournoi.fxml");
+            AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
         } else {
             tournoi = new TournoiDouble(nomTournoi.getText(),
                     dateDebutTournoi.getValue(),
