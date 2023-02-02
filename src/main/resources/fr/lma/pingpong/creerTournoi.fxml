@@ -57,7 +57,7 @@
             </Pane>
             <Pane layoutX="401.0" prefHeight="720.0" prefWidth="680.0">
                <children>
-                  <Label layoutX="175.0" layoutY="24.0" text="Création de tournoi" textFill="WHITE">
+                  <Label layoutX="175.0" layoutY="61.0" text="Création de tournoi" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>

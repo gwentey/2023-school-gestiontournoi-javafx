@@ -61,8 +61,9 @@ public class CreerTournoiController {
             nbJ = 32;
         }
 
+        Tournoi tournoi;
         if (typeT.getSelectedToggle().equals(typeTSimple)) {
-            Tournoi tournoi = new TournoiSimple(nomTournoi.getText(),
+            tournoi = new TournoiSimple(nomTournoi.getText(),
                     dateDebutTournoi.getPromptText(),
                     dateFinTournoi.getPromptText(),
                     nbJ,
@@ -70,13 +71,17 @@ public class CreerTournoiController {
                     stade.getText(),
                     ville.getText());
         } else {
-            Tournoi tournoi = new TournoiDouble(nomTournoi.getText(),
-                    dateDebutTournoi.getPromptText(),
-                    dateFinTournoi.getPromptText(),
+            tournoi = new TournoiDouble(nomTournoi.getText(),
+                    String.valueOf(dateDebutTournoi.getValue()),
+                    String.valueOf(dateFinTournoi.getValue()),
                     nbJ,
                     new ArrayList<>(7),
                     stade.getText(),
                     ville.getText());
         }
+        System.out.println(tournoi.getDateDebut());
+        System.out.println(tournoi.getDateFin());
+        System.out.println(dateDebutTournoi.getValue());
+        System.out.println(dateFinTournoi.getValue());
     }
 }
