@@ -36,73 +36,36 @@
 .datePicker {
     -fx-control-inner-background: -fx-primary-color;
     -fx-background-color: -fx-primary-color;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-border-color: #007acc;
+    -fx-border-color: -fx-secondary-color;
 }
-
-.table-view, .table-view-column {
-    -fx-focus-color: -fx-secondary-color;
-    -fx-background-insets: 0, 1;
-    -fx-background-color: -fx-secondary-color, #36393F;
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0;
 }
-
-.table-view-column{
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+.date-picker-popup  {
+    -fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-secondary-color;
+}
+.date-picker .cell {
+    -fx-background-color: -fx-primary-color;
+}
+.date-picker .cell:hover {
     -fx-background-color: #18191C;
 }
-
-tableCell {
-    -fx-border-width: 0;
-    -fx-control-inner-background: -fx-primary-color;
-}
-
-#addJoueur {
-    -fx-padding: 20;
-}
-
-
-
-/*
-/!\ A REGROUPER D'URGENCE /!\
-CSS DE L'ENFER DE LA SCROLL BARRE
-(ne marche pas .-.)
-*/
-
-.scrollPane{
-    -fx-border-color:derive(gray,80%);
-    -fx-background-color: #42464D;
-}
-
-.scrollPane .scroll-bar:horizontal,
-.scrollPane .scroll-bar:vertical{
-    -fx-background-color: transparent;
-}
-
-.scrollPane .scroll-bar .thumb:hover,
-.scrollPane .scroll-bar .thumb:pressed{
-    -fx-background-color: derive(#18191C,50%);
-}
-
-.scrollPane .increment-button ,
-.scrollPane .decrement-button {
-    -fx-background-color:transparent;
-    -fx-border-color:derive(transparent,80%);
-    -fx-padding:4px;
-}
-
-.scrollPane .scroll-bar:horizontal .track,
-.scrollPane .scroll-bar:vertical .track{
-    -fx-background-color: transparent;
-    -fx-border-color:derive(transparent,80%);
-    -fx-background-radius: 2em;
-    -fx-border-radius: 2em;
-}
-
-.scrollPane .scroll-bar:horizontal .thumb,
-.scrollPane .scroll-bar:vertical .thumb {
-    -fx-background-color:derive(#18191C,80%);
-    -fx-background-insets: 2, 0, 0;
-}
-.scrollPane .scroll-bar .thumb:hover,
-.scrollPane .scroll-bar .thumb:pressed{
-    -fx-background-color: derive(#18191C,100%);
+.date-picker .cell:focused {
+    -fx-background-color: -fx-secondary-color;
 }
