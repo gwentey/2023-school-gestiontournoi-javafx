@@ -2,7 +2,9 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
@@ -74,11 +76,16 @@
                </font>
             </Label>
             <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#button_click_menu" stylesheets="@styles/accueil.css" text="Retour au menu" />
-            <Label layoutX="650.0" layoutY="30.0" text="Nom du tournoi :" textFill="WHITE" />
-            <Label layoutX="650.0" layoutY="50.0" text="Date de début :" textFill="WHITE" />
-            <Label layoutX="650.0" layoutY="70.0" text="Date de fin :" textFill="WHITE" />
-            <Label layoutX="650.0" layoutY="90.0" text="Ville :" textFill="WHITE" />
-            <Label layoutX="650.0" layoutY="110.0" text="Stade" textFill="WHITE" />
+            <Label layoutX="448.0" layoutY="30.0" text="Nom du tournoi :" textFill="WHITE" />
+            <Label layoutX="448.0" layoutY="87.0" text="Date de début :" textFill="WHITE" />
+            <Label layoutX="448.0" layoutY="119.0" text="Date de fin :" textFill="WHITE" />
+            <Label layoutX="828.0" layoutY="30.0" text="Ville :" textFill="WHITE" />
+            <Label layoutX="827.0" layoutY="59.0" text="Stade" textFill="WHITE" />
+            <TextField id="nomTournoi" fx:id="nomTournois" layoutX="591.0" layoutY="26.0" />
+            <DatePicker id="dateDebut" fx:id="dateDebut" layoutX="591.0" layoutY="83.0" prefHeight="1.0" prefWidth="175.0" />
+            <DatePicker id="dateDebut" fx:id="dateFin" layoutX="591.0" layoutY="115.0" />
+            <TextField id="ville" fx:id="ville" layoutX="877.0" layoutY="25.0" />
+            <TextField id="stade" fx:id="stade" layoutX="877.0" layoutY="55.0" />
          </children>
       </Pane>
    </children>

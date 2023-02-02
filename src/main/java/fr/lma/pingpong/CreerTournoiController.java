@@ -70,6 +70,8 @@ public class CreerTournoiController {
                     new ArrayList<>(7),
                     stade.getText(),
                     ville.getText());
+            AccueilApplication.tournoiActuel = tournoi;
+            AccueilApplication.setFXMLForStage("affichageTournoi.fxml");
         } else {
             tournoi = new TournoiDouble(nomTournoi.getText(),
                     String.valueOf(dateDebutTournoi.getValue()),
@@ -78,6 +80,8 @@ public class CreerTournoiController {
                     new ArrayList<>(7),
                     stade.getText(),
                     ville.getText());
+            AccueilApplication.tournoiActuel = tournoi;
+
         }
         System.out.println(tournoi.getDateDebut());
         System.out.println(tournoi.getDateFin());
