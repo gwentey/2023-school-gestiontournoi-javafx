@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="AffichageTournoi"
+            fx:controller="fr.lma.pingpong.AffichageTournoiController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>
