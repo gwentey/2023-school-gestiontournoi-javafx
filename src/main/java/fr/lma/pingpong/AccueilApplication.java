@@ -14,6 +14,8 @@ public class AccueilApplication extends Application {
     // Attribut statique falicitant la modification du .fxml utilisé par le stage courrant
     private static Stage stage;
 
+    public static Tournoi tournoiActuel;
+
     public static void main(String[] args) {
         launch();
     }
