@@ -74,6 +74,11 @@
                </font>
             </Label>
             <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#button_click_menu" stylesheets="@styles/accueil.css" text="Retour au menu" />
+            <Label layoutX="650.0" layoutY="30.0" text="Nom du tournoi :" textFill="WHITE" />
+            <Label layoutX="650.0" layoutY="50.0" text="Date de début :" textFill="WHITE" />
+            <Label layoutX="650.0" layoutY="70.0" text="Date de fin :" textFill="WHITE" />
+            <Label layoutX="650.0" layoutY="90.0" text="Ville :" textFill="WHITE" />
+            <Label layoutX="650.0" layoutY="110.0" text="Stade" textFill="WHITE" />
          </children>
       </Pane>
    </children>
