@@ -1,7 +1,10 @@
 package fr.lma.pingpong;
 
-import java.util.ArrayList;
+import javafx.event.ActionEvent;
 
 public class CreerTournoiController {
-    String dateDebut;
+
+    public void afficherSceneMenu(ActionEvent actionEvent) {
+        AccueilApplication.setFXMLForStage("accueil.fxml");
+    }
 }

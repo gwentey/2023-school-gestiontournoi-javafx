@@ -44,7 +44,7 @@
                   </Label>
                   <Line endX="400.0" layoutY="150.0" stroke="WHITE" styleClass="line" />
                   <Line endX="292.0" layoutX="108.0" layoutY="659.0" startX="-108.0" stroke="WHITE" styleClass="line" />
-                  <Button layoutX="50.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Retour au menu" textFill="WHITE">
+                  <Button layoutX="50.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Retour au menu" textFill="WHITE" onAction="#afficherSceneMenu">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
