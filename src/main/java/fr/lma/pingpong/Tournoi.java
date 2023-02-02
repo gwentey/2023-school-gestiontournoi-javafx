@@ -9,17 +9,15 @@ import java.util.ArrayList;
 public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
 
     // Attributs
+    private String nom;
     private String dateDebut;
     private String dateFin;
     private ArrayList<Match> matchs;
     private Stade stade;
 
     // Constructeurs
-    public Tournoi(String p_dateDebut, String p_dateFin) {
-        this(p_dateDebut, p_dateFin, new ArrayList<>(), null);
-    }
-
-    public Tournoi(String p_dateDebut, String p_dateFin, ArrayList<Match> p_matchs, Stade p_stade) {
+    public Tournoi(String p_nom, String p_dateDebut, String p_dateFin, ArrayList<Match> p_matchs, Stade p_stade) {
+        this.nom = p_nom;
         this.dateDebut = p_dateDebut;
         this.dateFin = p_dateFin;
         this.matchs = p_matchs;
@@ -29,6 +27,10 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
     // Accesseurs
 
     // Getter
+
+    public String getNom() {
+        return this.nom;
+    }
 
     public String getDateDebut() {
         return this.dateDebut;
@@ -51,6 +53,11 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
     }
 
     // Setter
+
+    public void setNom(String p_nom) {
+        this.nom = p_nom;
+    }
+
     public void setDateDebut(String p_dateDebut) {
         this.dateDebut = p_dateDebut;
     }
