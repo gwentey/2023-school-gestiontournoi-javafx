@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.lma.pingpong.AffichageTournoiController">
+   <children>
+      <Pane prefHeight="720.0" prefWidth="1080.0" styleClass="background" stylesheets="@styles/affichageTournoi.css">
+         <children>
+            <Group layoutX="50.0" layoutY="580.0">
+               <children>
+                  <Label layoutY="80.0" text="Nom1" textFill="WHITE" />
+                  <Label layoutX="110.0" layoutY="80.0" text="Nom2" textFill="WHITE" />
+                  <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
+                  <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
+                  <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Group>
+            <Group layoutX="350.0" layoutY="580.0">
+               <children>
+                  <Label layoutY="80.0" text="Nom3" textFill="WHITE" />
+                  <Label layoutX="110.0" layoutY="80.0" text="Nom4" textFill="WHITE" />
+                  <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
+                  <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
+                  <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Group>
+            <Group layoutX="550.0" layoutY="580.0">
+               <children>
+                  <Label layoutY="80.0" text="Nom5" textFill="WHITE" />
+                  <Label layoutX="110.0" layoutY="80.0" text="Nom6" textFill="WHITE" />
+                  <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
+                  <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
+                  <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Group>
+            <Group layoutX="850.0" layoutY="580.0">
+               <children>
+                  <Label layoutY="80.0" text="Nom7" textFill="WHITE" />
+                  <Label layoutX="110.0" layoutY="80.0" text="Nom8" textFill="WHITE" />
+                  <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
+                  <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
+                  <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Group>
+            <Line endX="250.0" layoutX="519.0" layoutY="350.0" startX="-250.0" stroke="WHITE" />
+            <Line endY="150.0" fill="WHITE" layoutX="269.0" layoutY="350.0" stroke="WHITE" />
+            <Line endY="150.0" fill="WHITE" layoutX="769.0" layoutY="350.0" stroke="WHITE" />
+            <Label layoutX="200.0" layoutY="475.0" text="Gagnant1" textFill="WHITE" />
+            <Label layoutX="280.0" layoutY="475.0" text="Gagnant2" textFill="WHITE" />
+            <Label layoutX="700.0" layoutY="475.0" text="Gagnant3" textFill="WHITE" />
+            <Label layoutX="780.0" layoutY="475.0" text="Gagnant4" textFill="WHITE" />
+            <Line endX="519.0" endY="350.0" startX="519.0" startY="215.0" stroke="WHITE" />
+            <Circle fill="WHITE" layoutX="519.0" layoutY="350.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="450.0" layoutY="325.0" text="Finaliste1" textFill="WHITE" />
+            <Label layoutX="530.0" layoutY="325.0" text="Finaliste2" textFill="WHITE" />
+            <Label layoutX="497.0" layoutY="181.0" text="Vainqueur" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Circle fill="WHITE" layoutX="269.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="769.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Pane prefHeight="150.0" prefWidth="1080.0">
+         <children>
+            <Line endX="1080.0001220703125" endY="150.39999389648438" startX="-1.1189778888365254E-5" startY="150.40000915527344" stroke="WHITE" />
+            <Label layoutX="15.0" layoutY="15.0" text="Tournois Simple (8 joueurs)" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
