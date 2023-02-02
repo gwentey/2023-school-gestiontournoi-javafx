@@ -61,10 +61,10 @@
             <Label layoutX="450.0" layoutY="325.0" text="Finaliste1" textFill="WHITE" />
             <Label layoutX="530.0" layoutY="325.0" text="Finaliste2" textFill="WHITE" />
             <Label layoutX="491.0" layoutY="182.0" text="Vainqueur" textFill="WHITE" />
+            <Circle fill="WHITE" layoutX="269.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="769.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
-      <Circle fill="WHITE" layoutX="269.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="769.0" layoutY="500.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Pane prefHeight="150.0" prefWidth="1080.0">
          <children>
             <Line endX="1080.0001220703125" endY="150.39999389648438" startX="-1.1189778888365254E-5" startY="150.40000915527344" stroke="WHITE" />
