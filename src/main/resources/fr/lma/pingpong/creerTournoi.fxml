@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,12 +16,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@styles/creerTournoi.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.lma.pingpong.CreerTournoiController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.lma.pingpong.CreerTournoiController">
    <children>
-      <Pane prefHeight="720.0" prefWidth="1080.0" styleClass="background">
+      <Pane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <Line endX="400.0" endY="720.0" startX="400.0" stroke="WHITE" />
-            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="400.0" styleClass="background_gauche">
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="400.0" styleClass="panel-principal">
                <children>
                   <ImageView fitHeight="112.0" fitWidth="114.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,42 +55,67 @@
                   </Button>
                </children>
             </Pane>
-            <Pane layoutX="401.0" prefHeight="720.0" prefWidth="680.0">
+            <Pane layoutX="401.0" prefHeight="720.0" prefWidth="680.0" styleClass="panel-secondaire">
                <children>
-                  <Label layoutX="175.0" layoutY="61.0" text="Création de tournoi" textFill="WHITE">
+                  <Label layoutX="235.0" layoutY="63.0" text="Création de tournoi" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="80.0" layoutY="162.0" text="Nom du tournoi" textFill="WHITE">
+                  <Line endX="541.0" endY="150.0" startX="140.0" startY="150.0" stroke="#767676" styleClass="line" />
+                  <Label layoutX="141.0" layoutY="178.0" text="Nom du tournoi" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nomTournoi" layoutX="251.0" layoutY="162.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
-                  <Label layoutX="80.0" layoutY="213.0" text="Date de début" textFill="WHITE">
+                  <TextField fx:id="nomTournoi" layoutX="312.0" layoutY="178.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
+                  <Label layoutX="141.0" layoutY="229.0" text="Date de début" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <DatePicker fx:id="dateDebutTournoi" layoutX="251.0" layoutY="213.0" prefHeight="27.0" prefWidth="230.0" styleClass="datePicker" stylesheets="@styles/creerTournoi.css" />
-                  <Label layoutX="80.0" layoutY="263.0" text="Date de fin" textFill="WHITE">
+                  <DatePicker fx:id="dateDebutTournoi" layoutX="312.0" layoutY="229.0" prefHeight="27.0" prefWidth="230.0" styleClass="datePicker" />
+                  <Label layoutX="141.0" layoutY="279.0" text="Date de fin" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <DatePicker fx:id="dateFinTournoi" layoutX="251.0" layoutY="263.0" prefHeight="27.0" prefWidth="230.0" styleClass="datePicker" stylesheets="@styles/creerTournoi.css" />
-                  <Label layoutX="81.0" layoutY="312.0" text="Nombre de joueur" textFill="WHITE">
+                  <DatePicker fx:id="dateFinTournoi" layoutX="312.0" layoutY="279.0" prefHeight="27.0" prefWidth="230.0" styleClass="datePicker" />
+                  <Label layoutX="142.0" layoutY="328.0" text="Nombre de joueur" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="nbJoueur8" layoutX="251.0" layoutY="316.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="8">
+                  <RadioButton fx:id="nbJoueur8" layoutX="312.0" layoutY="332.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="8">
                      <toggleGroup>
                         <ToggleGroup fx:id="nbJoueur" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="nbJoueur16" layoutX="340.0" layoutY="316.0" mnemonicParsing="false" styleClass="radioButton" text="16" toggleGroup="$nbJoueur" />
-                  <RadioButton fx:id="nbJoueur32" layoutX="446.0" layoutY="316.0" mnemonicParsing="false" styleClass="radioButton" text="32" toggleGroup="$nbJoueur" />
-                  <Button layoutX="129.0" layoutY="534.0" mnemonicParsing="false" onAction="#creerTournoi" prefHeight="50.0" prefWidth="300.0" text="Créer le tournois" textFill="WHITE">
+                  <RadioButton fx:id="nbJoueur16" layoutX="401.0" layoutY="332.0" mnemonicParsing="false" styleClass="radioButton" text="16" toggleGroup="$nbJoueur" />
+                  <RadioButton fx:id="nbJoueur32" layoutX="507.0" layoutY="332.0" mnemonicParsing="false" styleClass="radioButton" text="32" toggleGroup="$nbJoueur" />
+                  <Label layoutX="142.0" layoutY="384.0" text="Type de tournoi" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="typeTSimple" layoutX="339.0" layoutY="386.0" mnemonicParsing="false" selected="true" text="Simple">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="typeT" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="typeTDouble" layoutX="459.0" layoutY="386.0" mnemonicParsing="false" text="Double" toggleGroup="$typeT" />
+                  <Label layoutX="140.0" layoutY="440.0" text="Stade" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="stade" layoutX="311.0" layoutY="440.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
+                  <Label layoutX="140.0" layoutY="486.0" text="Ville" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ville" layoutX="311.0" layoutY="486.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
+                  <Line endX="541.0" endY="550.0" startX="140.0" startY="550.0" stroke="#767676" styleClass="line" />
+                  <Button layoutX="189.0" layoutY="604.0" mnemonicParsing="false" onAction="#creerTournoi" prefHeight="50.0" prefWidth="300.0" text="Créer le tournois" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -98,32 +123,14 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Label layoutX="79.0" layoutY="424.0" text="Stade" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="stade" layoutX="250.0" layoutY="424.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
-                  <Label layoutX="79.0" layoutY="470.0" text="Ville" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="ville" layoutX="250.0" layoutY="470.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
-                  <Label layoutX="81.0" layoutY="368.0" text="Type de tournoi" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="typeTSimple" layoutX="251.0" layoutY="370.0" mnemonicParsing="false" selected="true" text="Simple">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="typeT" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="typeTDouble" layoutX="337.0" layoutY="370.0" mnemonicParsing="false" text="Double" toggleGroup="$typeT" />
                </children>
             </Pane>
+            <Line endX="400.0" endY="720.0" startX="400.0" stroke="#767676" styleClass="line" />
          </children>
+         <stylesheets>
+            <URL value="@styles/main.css" />
+            <URL value="@styles/form.css" />
+         </stylesheets>
       </Pane>
    </children>
 </AnchorPane>

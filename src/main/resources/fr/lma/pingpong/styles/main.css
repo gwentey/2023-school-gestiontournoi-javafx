@@ -1,0 +1,37 @@
+* {
+    -fx-primary-color: #36393F;
+    -fx-secondary-color: #007acc;
+    -fx-light-dark-color: #202225;
+    -fx-dark-color: #18191C;
+    -fx-focus-color: -fx-secondary-color;
+    -fx-text-fill: white;
+}
+
+.panel-principal {
+    -fx-background-color: -fx-light-dark-color;
+}
+
+.panel-secondaire {
+    -fx-background-color: -fx-primary-color;
+}
+
+.button {
+    -fx-background-color: -fx-dark-color;
+    -fx-background-radius: 15px;
+}
+
+.button:hover {
+    -fx-background-color: grey;
+}
+
+.line {
+    -fx-stroke: -fx-dark-color;
+}
+
+.item-tournoi {
+    -fx-background-color: -fx-light-dark-color;
+    -fx-background-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-radius: 10px;
+    -fx-text-fill: lightgrey;
+}

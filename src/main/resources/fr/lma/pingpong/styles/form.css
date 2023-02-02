@@ -1,0 +1,61 @@
+.textField {
+    -fx-background-color: lightgrey, -fx-primary-color;
+}
+
+.textField:focused {
+    -fx-background-color: -fx-focus-color, -fx-primary-color;
+}
+
+.datePicker {
+    -fx-control-inner-background: -fx-primary-color;
+    -fx-background-color: -fx-primary-color;
+    -fx-border-color: lightgrey;
+    -fx-border-radius: 3px;
+}
+
+.date-picker:focused {
+    -fx-border-color: -fx-focus-color;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-dark-color;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: lightgrey;
+}
+
+.date-picker-popup {
+    -fx-border-color: -fx-dark-color;
+    -fx-background-color: -fx-primary-color;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-secondary-color;
+    -fx-border-color: -fx-dark-color;
+}
+
+.date-picker .cell {
+    -fx-border-color: -fx-dark-color;
+    -fx-background-color: -fx-primary-color;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: -fx-dark-color;
+}
+
+.date-picker .cell:focused {
+    -fx-background-color: -fx-secondary-color;
+}
