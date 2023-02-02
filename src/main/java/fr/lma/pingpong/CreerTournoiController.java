@@ -64,8 +64,8 @@ public class CreerTournoiController {
         Tournoi tournoi;
         if (typeT.getSelectedToggle().equals(typeTSimple)) {
             tournoi = new TournoiSimple(nomTournoi.getText(),
-                    dateDebutTournoi.getPromptText(),
-                    dateFinTournoi.getPromptText(),
+                    dateDebutTournoi.getValue(),
+                    dateFinTournoi.getValue(),
                     nbJ,
                     new ArrayList<>(7),
                     stade.getText(),
@@ -74,8 +74,8 @@ public class CreerTournoiController {
             AccueilApplication.setFXMLForStage("affichageTournoi.fxml");
         } else {
             tournoi = new TournoiDouble(nomTournoi.getText(),
-                    String.valueOf(dateDebutTournoi.getValue()),
-                    String.valueOf(dateFinTournoi.getValue()),
+                    dateDebutTournoi.getValue(),
+                    dateFinTournoi.getValue(),
                     nbJ,
                     new ArrayList<>(7),
                     stade.getText(),
