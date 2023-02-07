@@ -34,11 +34,11 @@
                   <Label layoutX="448.0" layoutY="119.0" text="Date de fin :" textFill="WHITE" />
                   <Label layoutX="828.0" layoutY="30.0" text="Ville :" textFill="WHITE" />
                   <Label layoutX="827.0" layoutY="59.0" text="Stade" textFill="WHITE" />
-                  <TextField fx:id="nomTournois" layoutX="591.0" layoutY="26.0" />
-                  <DatePicker fx:id="dateDebut" layoutX="591.0" layoutY="83.0" prefHeight="1.0" prefWidth="175.0" />
-                  <DatePicker fx:id="dateFin" layoutX="591.0" layoutY="115.0" />
-                  <TextField fx:id="ville" layoutX="877.0" layoutY="25.0" />
-                  <TextField fx:id="stade" layoutX="877.0" layoutY="55.0" />
+                  <TextField fx:id="nomTournoi" layoutX="591.0" layoutY="26.0" styleClass="textField" stylesheets="@styles/form.css" />
+                  <DatePicker fx:id="dateDebutTournoi" layoutX="591.0" layoutY="83.0" prefHeight="1.0" prefWidth="175.0" styleClass="datePicker" stylesheets="@styles/form.css" />
+                  <DatePicker fx:id="dateFinTournoi" layoutX="591.0" layoutY="115.0" styleClass="datePicker" stylesheets="@styles/form.css" />
+                  <TextField fx:id="villeTournoi" layoutX="877.0" layoutY="25.0" styleClass="textField" stylesheets="@styles/form.css" />
+                  <TextField fx:id="stadeTournoi" layoutX="877.0" layoutY="55.0" styleClass="textField" stylesheets="@styles/form.css" />
                </children>
             </Pane>
             <Pane layoutY="150.0" prefHeight="570.0" prefWidth="1080.0" styleClass="panel-secondaire">

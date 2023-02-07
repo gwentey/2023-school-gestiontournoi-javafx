@@ -12,15 +12,15 @@ import java.util.ResourceBundle;
 public class AffichageTournoi8Controller implements Initializable {
 
     @FXML
-    private DatePicker dateDebut;
+    private DatePicker dateDebutTournoi;
     @FXML
-    private DatePicker dateFin;
+    private DatePicker dateFinTournoi;
     @FXML
-    private TextField nomTournois;
+    private TextField nomTournoi;
     @FXML
-    private TextField ville;
+    private TextField villeTournoi;
     @FXML
-    private TextField stade;
+    private TextField stadeTournoi;
 
     public void button_click_menu(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("accueil.fxml");
@@ -29,11 +29,11 @@ public class AffichageTournoi8Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tournoi t = AccueilApplication.tournoiActuel;
-        dateDebut.setValue(t.getDateDebut());
-        dateFin.setValue(t.getDateFin());
-        ville.setText(t.getVille());
-        nomTournois.setText(t.getNom());
-        stade.setText(t.getStade());
-        System.out.println("test");
+        this.dateDebutTournoi.setValue(t.getDateDebut());
+        this.dateFinTournoi.setValue(t.getDateFin());
+        this.villeTournoi.setText(t.getVille());
+        this.nomTournoi.setText(t.getNom());
+        this.stadeTournoi.setText(t.getStade());
+        System.out.println();
     }
 }
