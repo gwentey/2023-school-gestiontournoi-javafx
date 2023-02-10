@@ -1,13 +1,16 @@
 package fr.lma.pingpong;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import javafx.util.converter.LocalDateStringConverter;
 
-import java.io.FileWriter;
-import java.io.PrintWriter;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
+public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<Tournoi> {
 
     // Attributs
     private String nom;
@@ -79,7 +82,7 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         this.dateFin = p_dateFin;
     }
 
-    public void setNbJoueurs(int p_nbJoueurs)  {
+    public void setNbJoueurs(int p_nbJoueurs) {
         this.nbJoueurs = p_nbJoueurs;
     }
 
@@ -102,9 +105,11 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
     // Autres méthodes
 
     // Comparable
+
     /**
      * Permet la comparaison de deux instances de Tournoi
-     * @param o  à comparer
+     *
+     * @param o à comparer
      * @return int
      */
     @Override
@@ -117,16 +122,49 @@ public abstract class Tournoi implements Comparable<Tournoi>, Enregistrable {
         return distance;
     }
 
+    /**
+     * Permet de convertir l'instance en String format JSON
+     *
+     * @return String format JSON de l'instance
+     */
     @Override
-    public void enregistrer() {
-        String path = "..../ressources/fr/lma/pingpong/joueurs.json";
-
-        try (PrintWriter out = new PrintWriter(new FileWriter(path))) {
-            Gson gson = new Gson();
-            String jsonString = gson.toJson(this);
-            out.write(jsonString);
+    public String convertirToJSON() {
+        try {
+            /** Après de nombreux essayer de différentes librairies toutes plus
+             * obsolètes et bordéliques les unes que les autres, je me suis
+             * résigné à faire ça moi-même.
+             */
+            StringBuilder json =
+                    new StringBuilder("{\n" +
+                            "   \"nom\": \"" + this.nom + "\",\n" +
+                            "   \"dateDebut\": \"" + this.dateFin + "\",\n" +
+                            "   \"dateFin\": \"" + this.dateFin + "\",\n" +
+                            "   \"nbJoueurs\": " + this.nbJoueurs + ",\n" +
+                            "   \"matchs\": [\n");
+                    for (Match m : this.matchs) {
+                        json.append(m.convertirToJSON());
+                    }
+            json.append("   ],\n   \"stade\": \"").append(this.stade).append("\",\n")
+                    .append("   \"ville\": \"").append(this.ville).append("\"\n").append('}');
+            return json.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return e.toString();
+        }
+    }
+
+    /**
+     * Permet d'enregistrer une instance de Tournoi dans un fichier JSON
+     * Le nom du fichier sera le nom du tournois concaténé par un underscore
+     * à la date de début du tournois
+     */
+    public void enregistrer() {
+        FichierJSON<Tournoi> fichier = new FichierJSON<>(this.getNom()
+                + "_" + this.getDateDebut().toString());
+        switch (fichier.creer()) {
+            case 1, 2 -> fichier.ecrire(this);
+            default -> {
+            }
         }
     }
 }
