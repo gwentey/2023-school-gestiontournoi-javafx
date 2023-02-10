@@ -123,6 +123,21 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
     }
 
     /**
+     * Permet d'enregistrer une instance de Tournoi dans un fichier JSON
+     * Le nom du fichier sera le nom du tournois concaténé par un underscore
+     * à la date de début du tournois
+     */
+    public void enregistrer() {
+        FichierJSON<Tournoi> fichier = new FichierJSON<>(this.getNom()
+                + "_" + this.getDateDebut().toString());
+        switch (fichier.creer()) {
+            case 1, 2 -> fichier.ecrire(this);
+            default -> {
+            }
+        }
+    }
+
+    /**
      * Permet de convertir l'instance en String format JSON
      *
      * @return String format JSON de l'instance
@@ -130,7 +145,7 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
     @Override
     public String convertirToJSON() {
         try {
-            /** Après de nombreux essayer de différentes librairies toutes plus
+            /** Après de nombreux essais de différentes librairies toutes plus
              * obsolètes et bordéliques les unes que les autres, je me suis
              * résigné à faire ça moi-même.
              */
@@ -153,18 +168,16 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
         }
     }
 
-    /**
-     * Permet d'enregistrer une instance de Tournoi dans un fichier JSON
-     * Le nom du fichier sera le nom du tournois concaténé par un underscore
-     * à la date de début du tournois
-     */
-    public void enregistrer() {
-        FichierJSON<Tournoi> fichier = new FichierJSON<>(this.getNom()
-                + "_" + this.getDateDebut().toString());
-        switch (fichier.creer()) {
-            case 1, 2 -> fichier.ecrire(this);
-            default -> {
-            }
-        }
+    @Override
+    public String toString() {
+        return "Tournoi{" +
+                "nom='" + nom + '\'' +
+                ", dateDebut=" + dateDebut +
+                ", dateFin=" + dateFin +
+                ", nbJoueurs=" + nbJoueurs +
+                ", matchs=" + matchs +
+                ", stade='" + stade + '\'' +
+                ", ville='" + ville + '\'' +
+                '}';
     }
 }

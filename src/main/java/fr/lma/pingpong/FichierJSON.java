@@ -69,19 +69,6 @@ public class FichierJSON<O extends ConvertibleJSON> {
     }
 
     /**
-     * Permet de retourner le contenu d'un fichier JSON en String
-     * @return String, contenu du fichier instancié
-     */
-    public String lire() {
-        try {
-            return Files.readString(Paths.get(this.chemin));
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            return ioe.toString();
-        }
-    }
-
-    /**
      * Permet de supprimer le fichier ciblé par le chemin en argument
      *
      * @return Retourne si oui ou non le fichier à bien été supprimé
