@@ -42,8 +42,22 @@ public class ModifierTournoiController {
         AccueilApplication.setFXMLForStage("accueil.fxml");
     }
 
+    /**
+     * Permet de modifier un tournoi
+     * @param actionEvent
+     */
+    public void modifierTournoi(ActionEvent actionEvent) {
 
-    public void modifierTournoi(ActionEvent actionEvent) {}
+        int nbJ;
+        if (nbJoueur.getSelectedToggle().equals(nbJoueur8)) {
+            nbJ = 8;
+        } else if (nbJoueur.getSelectedToggle().equals(nbJoueur16)) {
+            nbJ = 16;
+        } else {
+            nbJ = 32;
+        }
+
+    }
 
     }
 
