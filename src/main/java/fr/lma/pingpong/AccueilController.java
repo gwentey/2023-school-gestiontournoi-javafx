@@ -17,5 +17,13 @@ public class AccueilController {
         AccueilApplication.setFXMLForStage("creerTournoi.fxml");
     }
 
+    /**
+     * Permet de modifier le tournoi selectionné
+     * @param actionEvent
+     */
+    public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
+        AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
+    }
+
 
 }
