@@ -22,7 +22,12 @@ public class AffichageTournoi8Controller implements Initializable {
     @FXML
     private TextField stadeTournoi;
 
-    public void button_click_menu(ActionEvent actionEvent) {
+    /**
+     * Bouton permettant de revenir au menu d'accueil
+     *
+     * @param actionEvent
+     */
+    public void buttonClickMenu(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("accueil.fxml");
         AccueilApplication.tournoiActuel.enregistrer();
     }

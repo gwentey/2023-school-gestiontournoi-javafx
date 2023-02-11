@@ -24,7 +24,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#button_click_menu" text="Retour au menu">
+                  <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#buttonClickMenu" text="Retour au menu">
                      <font>
                         <Font size="15.0" />
                      </font>
