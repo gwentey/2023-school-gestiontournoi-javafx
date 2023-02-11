@@ -7,14 +7,16 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class AccueilApplication extends Application {
 
     // Attribut statique falicitant la modification du .fxml utilisé par le stage courrant
-    private static Stage stage;
+    public static Stage stage;
 
     public static Tournoi tournoiActuel;
+    public static ArrayList<Tournoi> tournois = new ArrayList<>();
 
     public static void main(String[] args) {
         launch();

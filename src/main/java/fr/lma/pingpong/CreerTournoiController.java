@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Classe controlleur de creerTournoi.fxml
+ *
  * @author MaximeVeschembes
  */
 public class CreerTournoiController {
@@ -39,6 +40,7 @@ public class CreerTournoiController {
 
     /**
      * Permet de retourner au menu principal
+     *
      * @param actionEvent
      */
     public void afficherSceneMenu(ActionEvent actionEvent) {
@@ -48,6 +50,7 @@ public class CreerTournoiController {
 
     /**
      * Gestion de la création du tournois
+     *
      * @param actionEvent
      */
     public void creerTournoi(ActionEvent actionEvent) {

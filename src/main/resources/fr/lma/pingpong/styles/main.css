@@ -37,8 +37,7 @@
     -fx-text-fill: lightgrey;
 }
 
-.button_without_background {
+.item-tournoi > .button {
     -fx-background-color: transparent;
     -fx-cursor: hand;
-
 }
