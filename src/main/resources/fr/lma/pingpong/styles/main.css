@@ -15,6 +15,7 @@
     -fx-background-color: -fx-primary-color;
 }
 
+
 .button {
     -fx-background-color: -fx-dark-color;
     -fx-background-radius: 15px;
@@ -34,4 +35,10 @@
     -fx-border-color: black;
     -fx-border-radius: 10px;
     -fx-text-fill: lightgrey;
+}
+
+.button_without_background {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+
 }

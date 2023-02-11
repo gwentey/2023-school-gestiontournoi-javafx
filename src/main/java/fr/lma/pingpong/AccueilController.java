@@ -1,19 +1,8 @@
 package fr.lma.pingpong;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.stage.FileChooser;
-import javafx.util.converter.LocalDateStringConverter;
-
-import java.io.File;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class AccueilController {
     @FXML
@@ -42,6 +31,14 @@ public class AccueilController {
             }
         }
     }
+    /**
+     * Permet de modifier le tournoi selectionné
+     * @param actionEvent
+     */
+    public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
+        AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
+    }
+
 
     /**
      * Permet de charger un tournoi dans l'ArrayList des Tournois
