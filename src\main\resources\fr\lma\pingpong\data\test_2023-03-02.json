@@ -1,0 +1,10 @@
+{
+   "nom": "test",
+   "dateDebut": "2023-02-04",
+   "dateFin": "2023-02-04",
+   "nbJoueurs": 8,
+   "matchs": [
+   ],
+   "stade": "test",
+   "ville": "test"
+}
