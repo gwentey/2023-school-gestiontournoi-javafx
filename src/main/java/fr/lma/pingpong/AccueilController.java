@@ -34,7 +34,7 @@ public class AccueilController {
     public void afficherFileChooser(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         File fichierChoisi = fileChooser.showOpenDialog(AccueilApplication.stage);
-        if (fichierChoisi.exists() && fichierChoisi.canRead()) {
+        if (fichierChoisi != null && fichierChoisi.exists() && fichierChoisi.canRead()) {
             try {
                 chargerUnTournoiDepuisFichier(fichierChoisi);
                 for (Tournoi t : AccueilApplication.tournois) {
