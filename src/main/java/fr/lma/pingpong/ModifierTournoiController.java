@@ -10,29 +10,15 @@ import javafx.scene.control.ToggleGroup;
 public class ModifierTournoiController {
 
     @FXML
-    private TextField nomTournoi;
-    @FXML
     private DatePicker dateDebutTournoi;
     @FXML
     private DatePicker dateFinTournoi;
     @FXML
-    private ToggleGroup nbJoueur;
+    private TextField nomTournoi;
     @FXML
-    private RadioButton nbJoueur8;
+    private TextField villeTournoi;
     @FXML
-    private RadioButton nbJoueur16;
-    @FXML
-    private RadioButton nbJoueur32;
-    @FXML
-    private ToggleGroup typeT;
-    @FXML
-    private RadioButton typeTSimple;
-    @FXML
-    private RadioButton typeTDouble;
-    @FXML
-    private TextField stade;
-    @FXML
-    private TextField ville;
+    private TextField stadeTournoi;
 
     /**
      * Permet de retourner au menu principal
@@ -48,14 +34,6 @@ public class ModifierTournoiController {
      */
     public void modifierTournoi(ActionEvent actionEvent) {
 
-        int nbJ;
-        if (nbJoueur.getSelectedToggle().equals(nbJoueur8)) {
-            nbJ = 8;
-        } else if (nbJoueur.getSelectedToggle().equals(nbJoueur16)) {
-            nbJ = 16;
-        } else {
-            nbJ = 32;
-        }
 
     }
 
