@@ -7,8 +7,11 @@ import java.io.IOException;
 public class FichierJSON<O extends ConvertibleJSON> {
 
     // Attributs
-    private static final String CHEMIN_DONNEES = "src\\main\\resources\\fr\\lma\\pingpong\\data\\";
+    private static String SE = System.getProperty("os.name").toLowerCase();
+    private static String CHEMIN_DONNEES;
+
     private String chemin;
+
 
     /**
      * Permet d'ouvrir un fichier avec le chemin passé en paramètre
@@ -16,7 +19,19 @@ public class FichierJSON<O extends ConvertibleJSON> {
      * @param p_nomFichier Nom du fichier
      */
     public FichierJSON(String p_nomFichier) {
+        whatIsMyOS();
         this.chemin = CHEMIN_DONNEES + p_nomFichier + ".json";
+    }
+
+    /**
+     * Permet de determiner le chemin d'accès en fonction de l'OS de l'utilisateur
+     */
+    public static void whatIsMyOS(){
+        if (SE.indexOf("mac") >= 0) {
+            CHEMIN_DONNEES = "src/main/resources/fr/lma/pingpong/data/";
+        } else {
+            CHEMIN_DONNEES = "src\\main\\resources\\fr\\lma\\pingpong\\data\\";
+        }
     }
 
     // Accesseurs
