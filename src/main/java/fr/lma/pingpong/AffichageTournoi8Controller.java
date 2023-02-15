@@ -29,7 +29,8 @@ public class AffichageTournoi8Controller implements Initializable {
      */
     public void buttonClickMenu(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("accueil.fxml");
-        AccueilApplication.tournoiActuel.enregistrer();
+
+        JSONFichier.writeJsonFile(AccueilApplication.tournoiActuel);
     }
 
     @Override

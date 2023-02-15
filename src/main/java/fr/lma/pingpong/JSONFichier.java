@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONFile {
+public class JSONFichier {
 
     // Attributs
     private static String SE = System.getProperty("os.name").toLowerCase();
