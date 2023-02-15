@@ -9,7 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<Tournoi> {
+public abstract class Tournoi implements Comparable<Tournoi> {
 
     // Attributs
     private String nom;
@@ -35,6 +35,9 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
         this.stade = p_stade;
         this.ville = p_ville;
     }
+
+    // Nécessaire pour déserialiser
+    public Tournoi(){}
 
     // Accesseurs
 
@@ -124,21 +127,6 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
             distance = this.getDateFin().compareTo(o.getDateFin());
         }
         return distance;
-    }
-
-    /**
-     * Permet d'enregistrer une instance de Tournoi dans un fichier JSON
-     * Le nom du fichier sera le nom du tournois concaténé par un underscore
-     * à la date de début du tournois
-     */
-    public void enregistrer() {
-        FichierJSON<Tournoi> fichier = new FichierJSON<>(this.getNom()
-                + "_" + this.getDateDebut().toString());
-        switch (fichier.creer()) {
-            case 1, 2 -> fichier.ecrire(this);
-            default -> {
-            }
-        }
     }
 
 
