@@ -25,6 +25,7 @@ public class AccueilApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Scène d'accueil
+
         FXMLLoader fxmlLoader = new FXMLLoader(AccueilApplication.class.getResource("accueil.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
 

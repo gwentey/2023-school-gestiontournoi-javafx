@@ -1,6 +1,6 @@
 package fr.lma.pingpong;
 
-public class Match implements Comparable<Match>, ConvertibleJSON<Match> {
+public class Match implements Comparable<Match> {
 
     // Attributs
     private String date;
@@ -80,15 +80,4 @@ public class Match implements Comparable<Match>, ConvertibleJSON<Match> {
         return distance;
     }
 
-    /**
-     * Permet de convertir un Match en JSON
-     * @return String, format JSON
-     */
-    @Override
-    public String convertirToJSON() {
-        return  "   {\n" +
-                "       \"date\": \"" + this.date + "\"\n" +
-                "       \"heure\": " + this.heure + "\n" +
-                "   {\n";
-    }
 }
