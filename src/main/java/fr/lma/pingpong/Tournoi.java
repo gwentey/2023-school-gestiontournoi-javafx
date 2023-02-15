@@ -141,36 +141,6 @@ public abstract class Tournoi implements Comparable<Tournoi>, ConvertibleJSON<To
         }
     }
 
-    /**
-     * Permet de convertir l'instance en String format JSON
-     *
-     * @return String format JSON de l'instance
-     */
-    @Override
-    public String convertirToJSON() {
-        try {
-            /** Après de nombreux essais de différentes librairies toutes plus
-             * obsolètes et bordéliques les unes que les autres, je me suis
-             * résigné à faire ça moi-même.
-             */
-            StringBuilder json =
-                    new StringBuilder("{\n" +
-                            "   \"nom\": \"" + this.nom + "\",\n" +
-                            "   \"dateDebut\": \"" + this.dateFin + "\",\n" +
-                            "   \"dateFin\": \"" + this.dateFin + "\",\n" +
-                            "   \"nbJoueurs\": " + this.nbJoueurs + ",\n" +
-                            "   \"matchs\": [\n");
-                    for (Match m : this.matchs) {
-                        json.append(m.convertirToJSON());
-                    }
-            json.append("   ],\n   \"stade\": \"").append(this.stade).append("\",\n")
-                    .append("   \"ville\": \"").append(this.ville).append("\"\n").append('}');
-            return json.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return e.toString();
-        }
-    }
 
     @Override
     public String toString() {
