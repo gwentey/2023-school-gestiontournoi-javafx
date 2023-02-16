@@ -101,7 +101,7 @@ public class AccueilController {
         AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
     }
 
-
+    @FXML
     public void initialize() {
         // Récupérer la référence à la liste des tournois
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
