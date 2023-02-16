@@ -19,6 +19,7 @@ import java.util.List;
 
 public class AccueilController {
 
+    /** TilePane nécessaire pour le foreach des tournois */
     @FXML
     private TilePane tournoisTilePane;
 
@@ -85,23 +86,16 @@ public class AccueilController {
         }
     }
 
-    /**
-     * Permet de modifier le tournoi selectionné
-     *
-     * @param actionEvent
-     */
-    @FXML
-    public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
-        AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
-    }
 
+    /**
+     * Appelé au lancement de accueil.fxml et permet d'afficher les tournois dans un TilePane
+     *
+     */
     @FXML
     public void initialize() {
         // Récupérer la référence à la liste des tournois
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
 
-
-        tournoisTilePane.setStyle("-fx-background-color: -fx-primary-color");
         // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
         for (Tournoi tournoi : tournois) {
             try {

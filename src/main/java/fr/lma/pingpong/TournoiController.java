@@ -13,6 +13,12 @@ public class TournoiController {
     private Label dateTournoi;
 
 
+    /**
+     * Permet de reconstruire partiellement les informations souhaitées
+     * pour l'affichage d'un tournoi dans AccueilController
+     *
+     * @param tournoi
+     */
     public void setTournoi(Tournoi tournoi) {
         villeTournoi.setText(tournoi.getVille());
         nomTournoi.setText(tournoi.getNom());
@@ -20,6 +26,11 @@ public class TournoiController {
 
     }
 
+    /**
+     * Permet de modifier le tournoi selectionné
+     *
+     * @param actionEvent
+     */
     @FXML public void afficherSceneModifierTournoi(ActionEvent actionEvent)
     {
         AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
