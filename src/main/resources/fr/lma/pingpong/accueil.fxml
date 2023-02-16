@@ -45,7 +45,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="50.0" layoutY="300.0" mnemonicParsing="false" onAction="#afficherFileChooser" prefHeight="50.0" prefWidth="300.0" text="Charger un tournoi" textFill="WHITE">
+                  <Button layoutX="50.0" layoutY="300.0" mnemonicParsing="false" onAction="#afficherSceneTest" prefHeight="50.0" prefWidth="300.0" text="Charger un tournoi" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

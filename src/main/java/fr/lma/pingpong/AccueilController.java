@@ -25,6 +25,14 @@ public class AccueilController {
     }
 
     /**
+     * A SUPRIMER
+     */
+    @FXML
+    public void afficherSceneTest(ActionEvent actionEvent) {
+        AccueilApplication.setFXMLForStage("test.fxml");
+    }
+
+    /**
      * Permet d'afficher le fenêtre de sélection des fichiers
      * ainsi que de charger le fichier sélectionné
      *
