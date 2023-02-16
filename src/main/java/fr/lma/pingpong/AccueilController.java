@@ -3,10 +3,13 @@ package fr.lma.pingpong;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,6 +95,13 @@ public class AccueilController {
     public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
     }
+
+
+    public void initialize() {
+
+    }
+
+
 
 
 }

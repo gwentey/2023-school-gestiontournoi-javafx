@@ -15,34 +15,25 @@ public class TestController {
     @FXML
     private TilePane tournoisTilePane;
 
-    public void initialize() {
-        // Récupérer la référence à la liste des tournois
-        ArrayList<Tournoi> tournois = AccueilApplication.tournois;
+        public void initialize() {
+            // Récupérer la référence à la liste des tournois
+            ArrayList<Tournoi> tournois = AccueilApplication.tournois;
 
-        // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
-        for (Tournoi tournoi : tournois) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
-                AnchorPane tournoiPane = fxmlLoader.load();
-                tournoiPane.getChildren().stream()
-                        .filter(n -> n instanceof Label)
-                        .map(n -> (Label) n)
-                        .forEach(label -> {
-                            switch (label.getText()) {
-                                case "Ville du tournoi":
-                                    label.setText(tournoi.getVille());
-                                    break;
-
-                                default:
-                                    break;
-                            }
-                        });
-                tournoisTilePane.getChildren().add(tournoiPane);
-            } catch (IOException e) {
-                e.printStackTrace();
+            // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
+            for (Tournoi tournoi : tournois) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
+                    AnchorPane tournoiPane = fxmlLoader.load();
+                    TournoiController tournoiController = fxmlLoader.getController();
+                    tournoiController.setTournoi(tournoi);
+                    tournoisTilePane.getChildren().add(tournoiPane);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-    }
-
 }
+
+
+
 

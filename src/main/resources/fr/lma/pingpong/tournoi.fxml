@@ -36,7 +36,7 @@
                 <ColorAdjust brightness="1.0" />
             </effect>
         </ImageView>
-        <Label layoutX="20.0" layoutY="20.0" text="Nom du tournoi" textFill="WHITE">
+        <Label layoutX="20.0" fx:id="nomTournoi"  layoutY="20.0" text="Nom du tournoi" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
@@ -46,7 +46,7 @@
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label layoutX="20.0"  layoutY="80.0" text="Date du tournoi" textFill="WHITE">
+        <Label layoutX="20.0"  fx:id="dateTournoi"  layoutY="80.0" text="Date du tournoi" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
