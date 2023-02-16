@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.lma.pingpong.TournoiController"
+            prefHeight="200.0" prefWidth="200.0" styleClass="item-tournoi">
+    <children>
+
+
+        <Button layoutX="116.0" layoutY="150.0" onAction="#afficherSceneModifierTournoi">
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                    <image>
+                        <Image url="@img/supprimer.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <ColorAdjust brightness="1.0" />
+                    </effect>
+                </ImageView>
+            </graphic>
+        </Button>
+
+
+        <Button layoutX="56.0" layoutY="150.0" onAction="#afficherSceneModifierTournoi">
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                    <image>
+                        <Image url="@img/bouton-modifier.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <ColorAdjust brightness="1.0" />
+                    </effect>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Label layoutX="20.0" fx:id="nomTournoi"  layoutY="20.0" text="Nom du tournoi" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" fx:id="villeTournoi" layoutY="50.0" text="Ville du tournoi" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0"  fx:id="dateTournoi"  layoutY="80.0" text="Date du tournoi" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

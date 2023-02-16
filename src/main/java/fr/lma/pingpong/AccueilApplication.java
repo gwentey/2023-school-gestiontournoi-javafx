@@ -24,8 +24,12 @@ public class AccueilApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Scène d'accueil
 
+        // Tous les tournois sont chargés au démarrage (nécessaire ce que ce soit la première chose à charger)
+        tournois = JSONFichier.lireTousLesFichiersJson();
+        System.out.println(tournois);
+
+        // Scène d'accueil
         FXMLLoader fxmlLoader = new FXMLLoader(AccueilApplication.class.getResource("accueil.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
 
@@ -36,9 +40,6 @@ public class AccueilApplication extends Application {
         stage.show();
 
         AccueilApplication.stage = stage;
-
-        // Tous les tournois sont chargés au démarrage
-        this.tournois = JSONFichier.lireTousLesFichiersJson();
     }
 
     /**

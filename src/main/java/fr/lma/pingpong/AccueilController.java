@@ -3,16 +3,26 @@ package fr.lma.pingpong;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.LocalDateStringConverter;
+import javafx.scene.layout.TilePane;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class AccueilController {
+
+    /** TilePane nécessaire pour le foreach des tournois */
+    @FXML
+    private TilePane tournoisTilePane;
+
 
     /**
      * Permet d'afficher l'écran de création de tournoi
@@ -23,6 +33,7 @@ public class AccueilController {
     public void afficherSceneCreationTournoi(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("creerTournoi.fxml");
     }
+
 
     /**
      * Permet d'afficher le fenêtre de sélection des fichiers
@@ -75,15 +86,33 @@ public class AccueilController {
         }
     }
 
+
     /**
-     * Permet de modifier le tournoi selectionné
+     * Appelé au lancement de accueil.fxml et permet d'afficher les tournois dans un TilePane
      *
-     * @param actionEvent
      */
     @FXML
-    public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
-        AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
+    public void initialize() {
+        // Récupérer la référence à la liste des tournois
+        ArrayList<Tournoi> tournois = AccueilApplication.tournois;
+
+        // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
+        for (Tournoi tournoi : tournois) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
+                AnchorPane tournoiPane = fxmlLoader.load();
+                TournoiController tournoiController = fxmlLoader.getController();
+                tournoiController.setTournoi(tournoi);
+                tournoisTilePane.getChildren().add(tournoiPane);
+                tournoisTilePane.setMargin(tournoiPane, new Insets(10));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
 
 
 }
