@@ -105,13 +105,13 @@ public class AccueilController {
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
         root = tournoisTilePane.getParent();
 
+        // accroche un evenement meme si on quitte la page
         root.addEventHandler(TournoiSupprimeEvent.TOURNOI_SUPPRIME, event -> {
             System.out.println("Evenement de suppression détecté !!");
             tournois.clear();
             tournois.addAll(JSONFichier.lireTousLesFichiersJson());
             tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
 
-            // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
             // l'element traité dans le foreach est this et est prit en parametre
             tournois.forEach(this::ajouterTournoiDansTilePane);
         });
@@ -119,6 +119,11 @@ public class AccueilController {
         tournois.forEach(this::ajouterTournoiDansTilePane);
     }
 
+    /**
+     * Permet d'ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
+     *
+     * @param tournoi le tournoi a ajouter
+     */
     private void ajouterTournoiDansTilePane(Tournoi tournoi) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));

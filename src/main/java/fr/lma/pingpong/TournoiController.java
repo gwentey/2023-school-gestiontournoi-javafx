@@ -34,8 +34,7 @@ public class TournoiController {
      * @param event
      */
     @FXML
-    private void surpressionTournoi(ActionEvent event) {
-        System.out.println("FONCTION SUPRESSION APPELEE");
+    private void suppressionTournoi(ActionEvent event) {
         // Suppression du tournoi de l'ArrayList
         for (Tournoi tournoi : AccueilApplication.tournois) {
             if (tournoi.getNom().equals(nomTournoi.getText())) {
