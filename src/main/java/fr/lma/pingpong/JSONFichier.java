@@ -31,7 +31,7 @@ public class JSONFichier {
         whatIsMyOS();
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File(CHEMIN_DONNEES_O + tournoi.getNom() + ".json"), tournoi);
+            mapper.writeValue(new File(CHEMIN_DONNEES_O + tournoi.getNom() + "-" + tournoi.getNom() + ".json"), tournoi);
 
         } catch (Exception e) {
             System.err.println("Error writing file: " + e.getMessage());

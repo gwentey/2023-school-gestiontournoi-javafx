@@ -26,6 +26,29 @@ public class TournoiController {
 
     }
 
+
+    /**
+     * Permet la supression d'un Tournoi
+     *
+     * @param event
+     */
+    @FXML
+    private void surpressionTournoi(ActionEvent event) {
+        System.out.println("FONCTION SUPRESSION APPELEE");
+        // Suppression du tournoi de l'ArrayList
+        for (Tournoi tournoi : AccueilApplication.tournois) {
+            if (tournoi.getNom().equals(nomTournoi.getText())) {
+                AccueilApplication.tournois.remove(tournoi);
+                System.out.println("CE TOURNOI A ETE SUPPRIMEE : " + tournoi);
+                break;
+            }
+        }
+
+        // rechargement des tournois
+        AccueilApplication.tournois = JSONFichier.lireTousLesFichiersJson();
+    }
+
+
     /**
      * Permet de modifier le tournoi selectionné
      *
