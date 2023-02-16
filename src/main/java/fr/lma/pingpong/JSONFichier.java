@@ -14,6 +14,23 @@ public class JSONFichier {
 
     private String chemin;
 
+    /**
+     * Supprime le fichier JSON associé au tournoi spécifié.
+     *
+     * @param tournoi Le tournoi à supprimer.
+     */
+    public static void supprimerTournoi(Tournoi tournoi) {
+        whatIsMyOS();
+        String nomFichier = CHEMIN_DONNEES_O + tournoi.getNom() + "-" + tournoi.getDateDebut() + ".json";
+        File fichier = new File(nomFichier);
+        if (fichier.exists()) {
+            fichier.delete();
+            System.out.println("Fichier " + nomFichier + " supprimé avec succès.");
+        } else {
+            System.out.println("Le fichier " + nomFichier + " n'existe pas.");
+        }
+
+    }
 
 
     /**
@@ -27,18 +44,28 @@ public class JSONFichier {
         }
     }
 
+    /**
+     *
+     * Écrit un objet Tournoi dans un fichier JSON, en utilisant le nom et la date de début du tournoi pour déterminer le nom du fichier.
+     * @param tournoi l'objet Tournoi à enregistrer dans le fichier JSON
+     */
     public static void writeJsonFile(Tournoi tournoi) {
         whatIsMyOS();
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new File(CHEMIN_DONNEES_O + tournoi.getNom() + "-" + tournoi.getNom() + ".json"), tournoi);
+            mapper.writeValue(new File(CHEMIN_DONNEES_O + tournoi.getNom() + "-" + tournoi.getDateDebut() + ".json"), tournoi);
 
         } catch (Exception e) {
             System.err.println("Error writing file: " + e.getMessage());
         }
     }
 
-
+    /**
+     * Cette fonction permet de lire tous les fichiers JSON dans le répertoire data,
+     * et de les convertir en objets Tournoi. Les fichiers sont filtrés par leur extension '.json'.
+     *
+     * @return une liste d'objets Tournoi correspondant aux fichiers JSON trouvés
+     */
     public static ArrayList<Tournoi> lireTousLesFichiersJson() {
         whatIsMyOS();
         ArrayList<Tournoi> jsonObjects = new ArrayList<>();

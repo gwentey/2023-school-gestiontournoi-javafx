@@ -38,14 +38,17 @@ public class TournoiController {
         // Suppression du tournoi de l'ArrayList
         for (Tournoi tournoi : AccueilApplication.tournois) {
             if (tournoi.getNom().equals(nomTournoi.getText())) {
+                // supression dans l'arraylist
                 AccueilApplication.tournois.remove(tournoi);
-                System.out.println("CE TOURNOI A ETE SUPPRIMEE : " + tournoi);
+                // supression du fichier JSON
+                JSONFichier.supprimerTournoi(tournoi);
                 break;
             }
         }
-
         // rechargement des tournois
         AccueilApplication.tournois = JSONFichier.lireTousLesFichiersJson();
+        AccueilApplication.setFXMLForStage("accueil.fxml");
+
     }
 
 
