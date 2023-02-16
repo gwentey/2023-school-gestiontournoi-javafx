@@ -16,7 +16,7 @@
     <children>
 
 
-        <Button layoutX="116.0" layoutY="150.0" onAction="#afficherSceneModifierTournoi">
+        <Button layoutX="116.0" layoutY="150.0" onAction="#suppressionTournoi">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
                     <image>

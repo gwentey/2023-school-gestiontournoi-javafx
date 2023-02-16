@@ -1,6 +1,7 @@
 package fr.lma.pingpong;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -24,6 +25,7 @@ public class AccueilApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
 
         // Tous les tournois sont chargés au démarrage (nécessaire ce que ce soit la première chose à charger)
         tournois = JSONFichier.lireTousLesFichiersJson();

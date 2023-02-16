@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.LocalDateStringConverter;
 import javafx.scene.layout.TilePane;
+import javafx.scene.Parent;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +25,12 @@ public class AccueilController {
     @FXML
     private TilePane tournoisTilePane;
 
+    @FXML
+    private static Parent root; // attribut qui représente la racine de votre FXML
+
+    public static Parent getRoot() {
+        return root;
+    }
 
     /**
      * Permet d'afficher l'écran de création de tournoi
@@ -95,22 +103,40 @@ public class AccueilController {
     public void initialize() {
         // Récupérer la référence à la liste des tournois
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
+        root = tournoisTilePane.getParent();
 
-        // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
-        for (Tournoi tournoi : tournois) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
-                AnchorPane tournoiPane = fxmlLoader.load();
-                TournoiController tournoiController = fxmlLoader.getController();
-                tournoiController.setTournoi(tournoi);
-                tournoisTilePane.getChildren().add(tournoiPane);
-                tournoisTilePane.setMargin(tournoiPane, new Insets(10));
+        // accroche un evenement meme si on quitte la page
+        root.addEventHandler(TournoiSupprimeEvent.TOURNOI_SUPPRIME, event -> {
+            System.out.println("Evenement de suppression détecté !!");
+            tournois.clear();
+            tournois.addAll(JSONFichier.lireTousLesFichiersJson());
+            tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            // l'element traité dans le foreach est this et est prit en parametre
+            tournois.forEach(this::ajouterTournoiDansTilePane);
+        });
+
+        tournois.forEach(this::ajouterTournoiDansTilePane);
+    }
+
+    /**
+     * Permet d'ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
+     *
+     * @param tournoi le tournoi a ajouter
+     */
+    private void ajouterTournoiDansTilePane(Tournoi tournoi) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
+            AnchorPane tournoiPane = fxmlLoader.load();
+            TournoiController tournoiController = fxmlLoader.getController();
+            tournoiController.setTournoi(tournoi);
+            tournoisTilePane.getChildren().add(tournoiPane);
+            tournoisTilePane.setMargin(tournoiPane, new Insets(10));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
 
 
 

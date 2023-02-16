@@ -1,6 +1,7 @@
 package fr.lma.pingpong;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -25,6 +26,34 @@ public class TournoiController {
         dateTournoi.setText(tournoi.getDateDebut().toString());
 
     }
+
+
+    /**
+     * Permet la supression d'un Tournoi
+     *
+     * @param event
+     */
+    @FXML
+    private void suppressionTournoi(ActionEvent event) {
+        // Suppression du tournoi de l'ArrayList
+        for (Tournoi tournoi : AccueilApplication.tournois) {
+            if (tournoi.getNom().equals(nomTournoi.getText())) {
+                // supression dans l'arraylist
+                AccueilApplication.tournois.remove(tournoi);
+                // supression du fichier JSON
+                JSONFichier.supprimerTournoi(tournoi);
+                // lance l'événement supression : afin de reload la page
+                Event.fireEvent(AccueilController.getRoot(), new TournoiSupprimeEvent());
+
+                break;
+            }
+        }
+
+        // rechargement des tournois
+        AccueilApplication.tournois = JSONFichier.lireTousLesFichiersJson();
+
+    }
+
 
     /**
      * Permet de modifier le tournoi selectionné
