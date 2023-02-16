@@ -38,7 +38,8 @@ public class AccueilApplication extends Application {
         AccueilApplication.stage = stage;
 
         // Tous les tournois sont chargés au démarrage
-        this.tournois = JSONFichier.lireTousLesFichiersJson();
+        tournois = JSONFichier.lireTousLesFichiersJson();
+        System.out.println(tournois);
     }
 
     /**

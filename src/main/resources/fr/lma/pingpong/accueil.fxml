@@ -248,6 +248,9 @@
                                     </Label>
                                  </children>
                               </Pane>
+
+
+
                               <Pane layoutX="80.0" layoutY="490.0" prefHeight="200.0" prefWidth="200.0" styleClass="item-tournoi">
                                  <children>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="116.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
@@ -289,6 +292,12 @@
                                     </Label>
                                  </children>
                               </Pane>
+
+
+
+
+
+
                               <Pane layoutX="390.0" layoutY="490.0" prefHeight="200.0" prefWidth="200.0" styleClass="item-tournoi">
                                  <children>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="116.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
