@@ -2,6 +2,7 @@ package fr.lma.pingpong;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,16 +39,16 @@ public class JSONFichier {
     }
 
 
-    public static List<TournoiSimple> readJsonFiles() {
+    public static ArrayList<Tournoi> lireTousLesFichiersJson() {
         whatIsMyOS();
-        List<TournoiSimple> jsonObjects = new ArrayList<>();
+        ArrayList<Tournoi> jsonObjects = new ArrayList<>();
         File folder = new File(CHEMIN_DONNEES_O);
         File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".json"));
         if (files != null) {
             for (File file : files) {
                 try {
                     ObjectMapper mapper = new ObjectMapper();
-                    TournoiSimple jsonObject = mapper.readValue(file, TournoiSimple.class);
+                    Tournoi jsonObject = mapper.readValue(file, TournoiSimple.class);
                     jsonObjects.add(jsonObject);
                 } catch (Exception e) {
                     System.err.println("Error reading file: " + file.getAbsolutePath() + ", " + e.getMessage());

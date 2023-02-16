@@ -36,6 +36,9 @@ public class AccueilApplication extends Application {
         stage.show();
 
         AccueilApplication.stage = stage;
+
+        // Tous les tournois sont chargés au démarrage
+        this.tournois = JSONFichier.lireTousLesFichiersJson();
     }
 
     /**

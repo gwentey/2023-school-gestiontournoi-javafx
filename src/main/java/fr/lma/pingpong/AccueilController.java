@@ -84,4 +84,6 @@ public class AccueilController {
     public void afficherSceneModifierTournoi(ActionEvent actionEvent) {
         AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
     }
+
+
 }
