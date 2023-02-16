@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.LocalDateStringConverter;
@@ -106,6 +107,8 @@ public class AccueilController {
         // Récupérer la référence à la liste des tournois
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
 
+
+        tournoisTilePane.setStyle("-fx-background-color: -fx-primary-color");
         // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
         for (Tournoi tournoi : tournois) {
             try {
@@ -114,6 +117,8 @@ public class AccueilController {
                 TournoiController tournoiController = fxmlLoader.getController();
                 tournoiController.setTournoi(tournoi);
                 tournoisTilePane.getChildren().add(tournoiPane);
+                tournoisTilePane.setMargin(tournoiPane, new Insets(10));
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
