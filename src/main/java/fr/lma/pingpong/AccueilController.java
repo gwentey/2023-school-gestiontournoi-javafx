@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.LocalDateStringConverter;
+import javafx.scene.layout.TilePane;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AccueilController {
+
+    @FXML
+    private TilePane tournoisTilePane;
+
 
     /**
      * Permet d'afficher l'écran de création de tournoi
@@ -98,7 +103,21 @@ public class AccueilController {
 
 
     public void initialize() {
+        // Récupérer la référence à la liste des tournois
+        ArrayList<Tournoi> tournois = AccueilApplication.tournois;
 
+        // Ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
+        for (Tournoi tournoi : tournois) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tournoi.fxml"));
+                AnchorPane tournoiPane = fxmlLoader.load();
+                TournoiController tournoiController = fxmlLoader.getController();
+                tournoiController.setTournoi(tournoi);
+                tournoisTilePane.getChildren().add(tournoiPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
