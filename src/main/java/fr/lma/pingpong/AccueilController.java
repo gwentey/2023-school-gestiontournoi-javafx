@@ -33,13 +33,6 @@ public class AccueilController {
         AccueilApplication.setFXMLForStage("creerTournoi.fxml");
     }
 
-    /**
-     * A SUPRIMER
-     */
-    @FXML
-    public void afficherSceneTest(ActionEvent actionEvent) {
-        AccueilApplication.setFXMLForStage("test.fxml");
-    }
 
     /**
      * Permet d'afficher le fenêtre de sélection des fichiers

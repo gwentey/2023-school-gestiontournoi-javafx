@@ -76,14 +76,11 @@
 
                   <ScrollPane cacheShape="false" centerShape="false" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutY="150.0" maxHeight="570.0" maxWidth="680.0" pickOnBounds="false" prefHeight="570.0" prefWidth="680.0" scaleShape="false" vbarPolicy="ALWAYS">
                     <content>
-                      <AnchorPane maxWidth="680.0" minHeight="0.0" minWidth="0.0" prefWidth="660.0" styleClass="panel-secondaire">
+                      <AnchorPane maxWidth="680.0" minHeight="568.0" styleClass="panel-secondaire" minWidth="0.0" prefWidth="660.0">
                            <children>
 
 
-
-                              <TilePane styleClass="panel-secondaire" fx:id="tournoisTilePane" />
-
-
+                              <TilePane fx:id="tournoisTilePane" />
 
 
                            </children>
