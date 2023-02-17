@@ -62,8 +62,18 @@ public class TournoiController {
      */
     @FXML public void afficherSceneModifierTournoi(ActionEvent actionEvent)
     {
-
-        AccueilApplication.setFXMLForStage("modifierTournoi.fxml");
+        boolean find = false;
+        for (Tournoi tournoi : AccueilApplication.tournois) {
+            if (tournoi.getNom().equals(nomTournoi.getText())) {
+                AccueilApplication.tournoiActuel = tournoi;
+                find = true;
+            }
+        }
+        if(!find){
+            System.out.println("Erreur : Le tournoi n'a pas été trouvé dans l'arraylist");
+        }else{
+            AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
+        }
     }
 }
 
