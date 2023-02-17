@@ -1,5 +1,6 @@
 package fr.lma.pingpong;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -22,6 +23,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     private LocalDate dateFin;
     private int nbJoueurs;
     private ArrayList<Match> matchs;
+    @JsonProperty("joueurs")
     private ArrayList<Joueur> joueurs;
     private String stade;
     private String ville;
@@ -116,7 +118,9 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     }
 
     // Autres méthodes
-
+    public void addJoueur(Joueur j){
+        this.joueurs.add(j);
+    }
     // Comparable
 
     /**

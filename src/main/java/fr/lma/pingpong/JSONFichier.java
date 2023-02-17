@@ -78,6 +78,7 @@ public class JSONFichier {
                     Tournoi jsonObject = mapper.readValue(file, TournoiSimple.class);
                     jsonObjects.add(jsonObject);
                 } catch (Exception e) {
+
                     System.err.println("Error reading file: " + file.getAbsolutePath() + ", " + e.getMessage());
                 }
             }
