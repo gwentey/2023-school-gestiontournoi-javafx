@@ -75,9 +75,15 @@ public class AccueilController {
         try {
             HashMap<String, Object> map = new ObjectMapper().readValue(f, HashMap.class);
             List<Object> matchsJson = new ObjectMapper().convertValue(map.get("matchs"), List.class);
+            List<Object> joueursJson = new ObjectMapper().convertValue(map.get("joueurs"), List.class);
+
             ArrayList<Match> matchs = new ArrayList<>();
             for (Object o : matchsJson) {
                 matchs.add(new ObjectMapper().convertValue(o, Match.class));
+            }
+            ArrayList<Joueur> joueurs = new ArrayList<>();
+            for (Object o : joueursJson) {
+                joueurs.add(new ObjectMapper().convertValue(o, Joueur.class));
             }
             AccueilApplication.tournois.add(
                     new TournoiSimple(
@@ -86,6 +92,7 @@ public class AccueilController {
                             new LocalDateStringConverter(DateTimeFormatter.ISO_LOCAL_DATE, null).fromString((String) map.get("dateFin")),
                             (Integer) map.get("nbJoueurs"),
                             matchs,
+                            joueurs,
                             (String) map.get("state"),
                             (String) map.get("ville"))
             );

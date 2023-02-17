@@ -1,5 +1,13 @@
 package fr.lma.pingpong;
 
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.io.IOException;
+
 public class Joueur {
 
     // Attributs
@@ -31,5 +39,9 @@ public class Joueur {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+    //Nécessaire à la deserialization
+    public Joueur() {
+
     }
 }

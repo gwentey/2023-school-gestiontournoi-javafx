@@ -88,6 +88,11 @@
                   <Group layoutX="35.0" layoutY="510.0" />
                   <Group layoutX="335.0" layoutY="510.0" />
                   <Group layoutX="535.0" layoutY="510.0" />
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openEditJoueurs" text="Editer les joueurs">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>
