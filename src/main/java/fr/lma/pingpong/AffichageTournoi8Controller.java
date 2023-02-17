@@ -75,6 +75,7 @@ public class AffichageTournoi8Controller implements Initializable {
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
 
+
     @FXML
     private void handleCircleClick(MouseEvent event) {
         Circle circle = (Circle) event.getSource();
@@ -85,16 +86,13 @@ public class AffichageTournoi8Controller implements Initializable {
         // Récupérer la liste des joueurs du tournoi
         ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
 
-        // Vérifier si la liste des joueurs est vide
+        // Si la liste des joueurs est vide, afficher une alerte
         if (joueurs.isEmpty()) {
-            Alert emptyListAlert = new Alert(Alert.AlertType.WARNING);
-            emptyListAlert.setTitle("Liste des joueurs vide");
-            emptyListAlert.setHeaderText(null);
-            emptyListAlert.setContentText("La liste des joueurs du tournoi est vide. Veuillez ajouter des joueurs à l'ArrayList.");
-
-            emptyListAlert.showAndWait();
-
-            // Terminer la fonction si la liste est vide
+            Alert noJoueursAlert = new Alert(Alert.AlertType.WARNING);
+            noJoueursAlert.setTitle("Liste de joueurs vide");
+            noJoueursAlert.setHeaderText(null);
+            noJoueursAlert.setContentText("La liste des joueurs est vide. Veuillez ajouter des joueurs.");
+            noJoueursAlert.showAndWait();
             return;
         }
 
@@ -138,7 +136,29 @@ public class AffichageTournoi8Controller implements Initializable {
         gridPane.getColumnConstraints().addAll(column1, column2);
 
         alert.getDialogPane().setContent(gridPane);
-        alert.showAndWait();
-    }
 
-}
+        // Vérifier que les deux ChoiceBox et les deux TextField ont été remplis
+        ButtonType buttonType = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (buttonType == ButtonType.OK) {
+            if (choiceBox1.getValue() == null || choiceBox2.getValue() == null ||
+                    textField1.getText().isEmpty() || textField2.getText().isEmpty()) {
+                Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+                warningAlert.setTitle("Attention !");
+                warningAlert.setHeaderText(null);
+                warningAlert.setContentText("Veuillez remplir tous les champs !");
+                warningAlert.showAndWait();
+            } else {
+                // Les champs sont remplis, ajouter les informations du match à la liste des matchs
+                Joueur joueur1 = joueurs.get(choiceBox1.getSelectionModel().getSelectedIndex());
+                Joueur joueur2 = joueurs.get(choiceBox2.getSelectionModel().getSelectedIndex());
+                int score1 = Integer.parseInt(textField1.getText());
+                int score2 = Integer.parseInt(textField2.getText());
+                Match match = new Match(joueur1, joueur2, score1, score2);
+                AccueilApplication.tournoiActuel.ajouterMatch(match);
+            }
+        } else {
+            // Le bouton Annuler ou la croix ont été cliqués, ne rien faire
+        }
+
+
+    }
