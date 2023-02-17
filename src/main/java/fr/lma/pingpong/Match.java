@@ -4,15 +4,56 @@ public class Match implements Comparable<Match> {
 
     // Attributs
     private String date;
+
+    private Joueur joueur1;
+    private Joueur joueur2;
+
+    private int score1;
+    private int score2;
+
     private int heure; // en seconde
 
     // Constructeur
-    public Match(String p_date, int p_heure) {
-        this.date = p_date;
-        this.heure = p_heure;
+    public Match(Joueur joueur1, Joueur joueur2, int score1, int score2) {
+        this.joueur1 = joueur1;
+        this.joueur2 = joueur2;
+        this.score1 = score1;
+        this.score2 = score2;
     }
 
     // Accesseurs
+
+    public Joueur getJoueur1() {
+        return joueur1;
+    }
+
+    public void setJoueur1(Joueur joueur1) {
+        this.joueur1 = joueur1;
+    }
+
+    public Joueur getJoueur2() {
+        return joueur2;
+    }
+
+    public void setJoueur2(Joueur joueur2) {
+        this.joueur2 = joueur2;
+    }
+
+    public int getScore1() {
+        return score1;
+    }
+
+    public int getScore2() {
+        return score2;
+    }
+    public void setScore1(int score1) {
+        this.score1 = score1;
+    }
+
+
+    public void setScore2(int scoreé) {
+        this.score2 = scoreé;
+    }
 
     // Getter
     public String getDate() {
