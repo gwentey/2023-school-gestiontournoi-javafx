@@ -159,6 +159,6 @@ public class AffichageTournoi8Controller implements Initializable {
         } else {
             // Le bouton Annuler ou la croix ont été cliqués, ne rien faire
         }
-
+    }
 
     }
