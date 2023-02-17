@@ -22,16 +22,18 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     private LocalDate dateFin;
     private int nbJoueurs;
     private ArrayList<Match> matchs;
+    private ArrayList<Joueur> joueurs;
     private String stade;
     private String ville;
 
     // Constructeurs
-    public Tournoi(String p_nom, LocalDate p_dateDebut, LocalDate p_dateFin, int p_nbJoueurs, ArrayList<Match> p_matchs, String p_stade, String p_ville) {
+    public Tournoi(String p_nom, LocalDate p_dateDebut, LocalDate p_dateFin, int p_nbJoueurs, ArrayList<Match> p_matchs, ArrayList<Joueur> p_joueurs, String p_stade, String p_ville) {
         this.nom = p_nom;
         this.dateDebut = p_dateDebut;
         this.dateFin = p_dateFin;
         this.nbJoueurs = p_nbJoueurs;
         this.matchs = p_matchs;
+        this.joueurs = p_joueurs;
         this.stade = p_stade;
         this.ville = p_ville;
     }
@@ -62,6 +64,8 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     public ArrayList<Match> getMatchs() {
         return this.matchs;
     }
+
+    public ArrayList<Joueur> getJoueurs(){return this.joueurs;}
 
     public Match getMatchByIndex(int i) {
         return this.matchs.get(i);
@@ -96,6 +100,8 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     public void setMatchs(ArrayList<Match> p_matchs) {
         this.matchs = p_matchs;
     }
+
+    public void setJoueurs(ArrayList<Joueur> p_joueurs){this.joueurs = p_joueurs;}
 
     public void ajouterMatch(Match m) {
         this.matchs.add(m);
@@ -138,6 +144,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
                 ", dateFin=" + dateFin +
                 ", nbJoueurs=" + nbJoueurs +
                 ", matchs=" + matchs +
+                ", joueurs=" + joueurs +
                 ", stade='" + stade + '\'' +
                 ", ville='" + ville + '\'' +
                 '}';

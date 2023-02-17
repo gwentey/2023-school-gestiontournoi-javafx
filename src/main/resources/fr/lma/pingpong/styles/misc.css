@@ -1,0 +1,17 @@
+* {
+    -fx-primary-color: #36393F;
+    -fx-secondary-color: #007acc;
+    -fx-light-dark-color: #202225;
+    -fx-dark-color: #18191C;
+    -fx-focus-color: -fx-secondary-color;
+    -fx-text-fill: white;
+}
+
+.tableView{
+    -fx-background-color: -fx-primary-color;
+    -fx-border-color: -fx-light-dark-color;
+}
+
+.table-view .column-header{
+    -fx-background-color: -fx-dark-color;
+}

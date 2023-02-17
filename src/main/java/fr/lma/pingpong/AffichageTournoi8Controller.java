@@ -46,4 +46,8 @@ public class AffichageTournoi8Controller implements Initializable {
         this.stadeTournoi.setText(t.getStade());
         System.out.println();
     }
+
+    public void openEditJoueurs(){
+        AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
+    }
 }

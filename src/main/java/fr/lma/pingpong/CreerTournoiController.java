@@ -72,6 +72,7 @@ public class CreerTournoiController {
                     dateFinTournoi.getValue(),
                     nbJ,
                     new ArrayList<>(7),
+                    new ArrayList<>(6),
                     stade.getText(),
                     ville.getText());
             AccueilApplication.tournoiActuel = tournoi;
@@ -82,6 +83,7 @@ public class CreerTournoiController {
                     dateFinTournoi.getValue(),
                     nbJ,
                     new ArrayList<>(7),
+                    new ArrayList<>(6),
                     stade.getText(),
                     ville.getText());
             AccueilApplication.tournoiActuel = tournoi;
