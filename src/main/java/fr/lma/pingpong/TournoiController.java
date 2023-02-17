@@ -72,7 +72,9 @@ public class TournoiController {
         if(!find){
             System.out.println("Erreur : Le tournoi n'a pas été trouvé dans l'arraylist");
         }else{
-            AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
+            if(AccueilApplication.tournoiActuel.getNbJoueurs()==8){
+                AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
+            }
         }
     }
 }

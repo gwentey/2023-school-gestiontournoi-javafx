@@ -59,8 +59,6 @@
                   <Circle fill="WHITE" layoutX="787.0" layoutY="355.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                   <Group layoutX="68.0" layoutY="435.0">
                      <children>
-                        <Label layoutY="80.0" text="Nom1" textFill="WHITE" />
-                        <Label layoutX="110.0" layoutY="80.0" text="Nom2" textFill="WHITE" />
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
                         <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
@@ -68,8 +66,6 @@
                   </Group>
                   <Group layoutX="368.0" layoutY="435.0">
                      <children>
-                        <Label layoutY="80.0" text="Nom3" textFill="WHITE" />
-                        <Label layoutX="110.0" layoutY="80.0" text="Nom4" textFill="WHITE" />
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
                         <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
@@ -77,8 +73,6 @@
                   </Group>
                   <Group layoutX="568.0" layoutY="435.0">
                      <children>
-                        <Label layoutY="80.0" text="Nom5" textFill="WHITE" />
-                        <Label layoutX="110.0" layoutY="80.0" text="Nom6" textFill="WHITE" />
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
                         <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
@@ -86,13 +80,14 @@
                   </Group>
                   <Group layoutX="868.0" layoutY="435.0">
                      <children>
-                        <Label layoutY="80.0" text="Nom7" textFill="WHITE" />
-                        <Label layoutX="110.0" layoutY="80.0" text="Nom8" textFill="WHITE" />
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
                         <Circle fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Group>
+                  <Group layoutX="35.0" layoutY="510.0" />
+                  <Group layoutX="335.0" layoutY="510.0" />
+                  <Group layoutX="535.0" layoutY="510.0" />
                </children>
             </Pane>
          </children>
