@@ -51,6 +51,7 @@ public class AccueilController {
      */
     @FXML
     public void afficherFileChooser(ActionEvent actionEvent) {
+        /**
         FileChooser fileChooser = new FileChooser();
         File fichierChoisi = fileChooser.showOpenDialog(AccueilApplication.stage);
         if (fichierChoisi != null && fichierChoisi.exists() && fichierChoisi.canRead()) {
@@ -63,6 +64,7 @@ public class AccueilController {
                 e.printStackTrace();
             }
         }
+         */
     }
 
     /**
@@ -71,7 +73,7 @@ public class AccueilController {
      *
      * @param f Fichier choisie
      */
-    private void chargerUnTournoiDepuisFichier(File f) {
+    /** private void chargerUnTournoiDepuisFichier(File f) {
         try {
             HashMap<String, Object> map = new ObjectMapper().readValue(f, HashMap.class);
             List<Object> matchsJson = new ObjectMapper().convertValue(map.get("matchs"), List.class);
@@ -81,6 +83,7 @@ public class AccueilController {
             for (Object o : matchsJson) {
                 matchs.add(new ObjectMapper().convertValue(o, Match.class));
             }
+
             ArrayList<Joueur> joueurs = new ArrayList<>();
             for (Object o : joueursJson) {
                 joueurs.add(new ObjectMapper().convertValue(o, Joueur.class));
@@ -99,7 +102,7 @@ public class AccueilController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 
     /**

@@ -158,11 +158,8 @@ public class AffichageTournoi8Controller implements Initializable {
                 int score1 = Integer.parseInt(textField1.getText());
                 int score2 = Integer.parseInt(textField2.getText());
                 Match match = new Match(joueur1, joueur2, score1, score2);
-                System.out.println("MATCH AJOUTEE :" + match.getScore1());
-                System.out.println("MATCH AJOUTEE MEME :" + match);
 
-                AccueilApplication.tournoiActuel.ajouterMatch(match);
-
+                AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
 
             }
         }

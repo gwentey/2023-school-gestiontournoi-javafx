@@ -9,6 +9,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Tournoi implements Comparable<Tournoi> {
 
@@ -23,14 +25,15 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     private LocalDate dateFin;
     private int nbJoueurs;
 
-    private ArrayList<Match> matchs;
+    private Map<String, Match> matchs = new HashMap<>();
+
     @JsonProperty("joueurs")
     private ArrayList<Joueur> joueurs;
     private String stade;
     private String ville;
 
     // Constructeurs
-    public Tournoi(String p_nom, LocalDate p_dateDebut, LocalDate p_dateFin, int p_nbJoueurs, ArrayList<Match> p_matchs, ArrayList<Joueur> p_joueurs, String p_stade, String p_ville) {
+    public Tournoi(String p_nom, LocalDate p_dateDebut, LocalDate p_dateFin, int p_nbJoueurs, Map<String, Match> p_matchs, ArrayList<Joueur> p_joueurs, String p_stade, String p_ville) {
         this.nom = p_nom;
         this.dateDebut = p_dateDebut;
         this.dateFin = p_dateFin;
@@ -64,7 +67,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
         return this.nbJoueurs;
     }
 
-    public ArrayList<Match> getMatchs() {
+    public Map<String, Match> getMatchs() {
         return this.matchs;
     }
 
@@ -100,14 +103,14 @@ public abstract class Tournoi implements Comparable<Tournoi> {
         this.nbJoueurs = p_nbJoueurs;
     }
 
-    public void setMatchs(ArrayList<Match> p_matchs) {
+    public void setMatchs(Map<String, Match> p_matchs) {
         this.matchs = p_matchs;
     }
 
     public void setJoueurs(ArrayList<Joueur> p_joueurs){this.joueurs = p_joueurs;}
 
-    public void ajouterMatch(Match m) {
-        this.matchs.add(m);
+    public void ajouterMatch(String position, Match m) {
+        this.matchs.put(position, m);
     }
 
     public void setStade(String p_stade) {

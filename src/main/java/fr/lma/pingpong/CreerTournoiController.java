@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Classe controlleur de creerTournoi.fxml
@@ -71,7 +73,7 @@ public class CreerTournoiController {
                     dateDebutTournoi.getValue(),
                     dateFinTournoi.getValue(),
                     nbJ,
-                    new ArrayList<>(7),
+                    new HashMap<>(),
                     new ArrayList<>(6),
                     stade.getText(),
                     ville.getText());
@@ -82,7 +84,7 @@ public class CreerTournoiController {
                     dateDebutTournoi.getValue(),
                     dateFinTournoi.getValue(),
                     nbJ,
-                    new ArrayList<>(7),
+                    new HashMap<>(),
                     new ArrayList<>(6),
                     stade.getText(),
                     ville.getText());
