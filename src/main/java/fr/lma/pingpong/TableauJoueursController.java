@@ -38,8 +38,12 @@ public class TableauJoueursController implements Initializable {
         tableview.setItems(joueurs);
     }
 
-    public void retourMenu(){
-        AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
+    public void retourTournoi(){
+        if(AccueilApplication.tournoiActuel.getNbJoueurs()==8){
+            AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
+        }else{
+            AccueilApplication.setFXMLForStage("affichageTournoi16.fxml");
+        }
     }
 
     public void ajouterJoueur(){

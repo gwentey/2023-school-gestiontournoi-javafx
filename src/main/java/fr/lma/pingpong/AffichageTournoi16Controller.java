@@ -3,10 +3,16 @@ package fr.lma.pingpong;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AffichageTournoi16Controller implements Initializable {
@@ -21,6 +27,36 @@ public class AffichageTournoi16Controller implements Initializable {
     @FXML
     private TextField stadeTournoi;
 
+    @FXML
+    private Circle match1;
+    @FXML
+    private Circle match2;
+    @FXML
+    private Circle match3;
+    @FXML
+    private Circle match4;
+    @FXML
+    private Circle match5;
+    @FXML
+    private Circle match6;
+    @FXML
+    private Circle match7;
+    @FXML
+    private Circle match8;
+    @FXML
+    private Circle match9;
+    @FXML
+    private Circle match10;
+    @FXML
+    private Circle match11;
+    @FXML
+    private Circle match12;
+    @FXML
+    private Circle match13;
+    @FXML
+    private Circle match14;
+    @FXML
+    private Circle match15;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tournoi t = AccueilApplication.tournoiActuel;
@@ -48,6 +84,124 @@ public class AffichageTournoi16Controller implements Initializable {
 
     public void openEditJoueurs(){
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
+    }
+
+    @FXML
+    public void handleCircleClick(MouseEvent event) {
+        // récupère du Circle cliqué
+        Circle circle = (Circle) event.getSource();
+
+        // Créer les ChoiceBox et les TextField
+        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
+        TextField textField1 = new TextField();
+        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
+        TextField textField2 = new TextField();
+        // Remplir les ChoiceBox avec les noms des joueurs
+
+
+        // Récupérer la liste des joueurs du tournoi
+        ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
+
+        for (Joueur joueur : joueurs) {
+            choiceBox1.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox2.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox1.setPrefWidth(200);
+            choiceBox2.setPrefWidth(200);
+        }
+
+        // Vérifier si la clé existe dans la map
+        if (AccueilApplication.tournoiActuel.getMatchs().containsKey(circle.getId())) {
+            System.out.println("MATCH DETECTEEEEE");
+            Match match = AccueilApplication.tournoiActuel.getMatchs().get(circle.getId());
+            Joueur joueur1 = match.getJoueur1();
+            Joueur joueur2 = match.getJoueur2();
+            int score1 = match.getScore1();
+            int score2 = match.getScore2();
+
+            // pré-selectionner les choix
+            choiceBox1.getSelectionModel().select(joueur1.getPrenom() + " " + joueur1.getNom());
+            choiceBox2.getSelectionModel().select(joueur2.getPrenom() + " " + joueur2.getNom());
+
+            textField1.setText(String.valueOf(score1));
+            textField2.setText(String.valueOf(score2));
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Remplir le " + circle.getId());
+        alert.setHeaderText(null);
+        Image img = new Image(this.getClass().getResource("img/ping-pong.png").toString());
+        ImageView imageView = new ImageView(img);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        alert.setGraphic(imageView);
+
+
+        // Si la liste des joueurs est vide, afficher une alerte
+        if (joueurs.isEmpty()) {
+            Alert noJoueursAlert = new Alert(Alert.AlertType.WARNING);
+            noJoueursAlert.setTitle("Liste de joueurs vide");
+            noJoueursAlert.setHeaderText(null);
+            noJoueursAlert.setContentText("La liste des joueurs est vide. Veuillez ajouter des joueurs.");
+            noJoueursAlert.showAndWait();
+            return;
+        }
+
+
+
+        // Créer le GridPane
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+
+        // Ajouter les éléments au GridPane
+        gridPane.add(new Label("🏓 Joueurs :"), 0, 0);
+        gridPane.add(choiceBox1, 0, 1);
+        gridPane.add(textField1, 1, 1);
+
+        // Ajouter une ligne vide
+        gridPane.add(new Label(), 0, 2);
+
+        // Ajouter les éléments au GridPane
+        gridPane.add(new Label("🏆 Score"), 1, 0);
+        gridPane.add(choiceBox2, 0, 4);
+        gridPane.add(textField2, 1, 4);
+
+        // Définir les contraintes de colonnes pour que les ChoiceBox prennent 80% de la largeur
+        ColumnConstraints column1 = new ColumnConstraints();
+        column1.setPercentWidth(60);
+        ColumnConstraints column2 = new ColumnConstraints();
+        column2.setPercentWidth(40);
+        gridPane.getColumnConstraints().addAll(column1, column2);
+
+        alert.getDialogPane().setContent(gridPane);
+
+        // Ajouter le bouton Annuler
+        ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(cancelButton);
+
+        // Vérifier que les deux ChoiceBox et les deux TextField ont été remplis
+        ButtonType buttonType = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (buttonType == ButtonType.OK) {
+            if (choiceBox1.getValue() == null || choiceBox2.getValue() == null ||
+                    textField1.getText().isEmpty() || textField2.getText().isEmpty()) {
+                Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+
+                warningAlert.setTitle("Attention !");
+                warningAlert.setHeaderText(null);
+                warningAlert.setContentText("Veuillez remplir tous les champs !");
+                warningAlert.showAndWait();
+            } else {
+                // Les champs sont remplis, ajouter les informations du match à la liste des matchs
+                Joueur joueur1 = joueurs.get(choiceBox1.getSelectionModel().getSelectedIndex());
+                Joueur joueur2 = joueurs.get(choiceBox2.getSelectionModel().getSelectedIndex());
+                int score1 = Integer.parseInt(textField1.getText());
+                int score2 = Integer.parseInt(textField2.getText());
+                Match match = new Match(joueur1, joueur2, score1, score2);
+
+                AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
+
+            }
+        }
     }
 
 }
