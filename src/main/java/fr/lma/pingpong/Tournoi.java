@@ -22,6 +22,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate dateFin;
     private int nbJoueurs;
+
     private ArrayList<Match> matchs;
     @JsonProperty("joueurs")
     private ArrayList<Joueur> joueurs;

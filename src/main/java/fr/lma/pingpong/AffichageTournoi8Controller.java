@@ -29,19 +29,19 @@ public class AffichageTournoi8Controller implements Initializable {
     private TextField stadeTournoi;
 
     @FXML
-    private Circle circleMatch1;
+    private Circle match1;
     @FXML
-    private Circle circleMatch2;
+    private Circle match2;
     @FXML
-    private Circle circleMatch3;
+    private Circle match3;
     @FXML
-    private Circle circleMatch4;
+    private Circle match4;
     @FXML
-    private Circle circleMatch5;
+    private Circle match5;
     @FXML
-    private Circle circleMatch6;
+    private Circle match6;
     @FXML
-    private Circle circleMatch7;
+    private Circle match7;
 
 // ...
 
@@ -158,7 +158,12 @@ public class AffichageTournoi8Controller implements Initializable {
                 int score1 = Integer.parseInt(textField1.getText());
                 int score2 = Integer.parseInt(textField2.getText());
                 Match match = new Match(joueur1, joueur2, score1, score2);
+                System.out.println("MATCH AJOUTEE :" + match.getScore1());
+                System.out.println("MATCH AJOUTEE MEME :" + match);
+
                 AccueilApplication.tournoiActuel.ajouterMatch(match);
+
+
             }
         }
     }
