@@ -85,4 +85,23 @@ public class JSONFichier {
         }
         return jsonObjects;
     }
+    /**
+     * Cette fonction permet de d'ajouter un fichier JSON dans le répertoire data
+     *
+     * @param file le fichier JSON a lire
+     */
+    public static void lireFichierJson(File file) {
+        whatIsMyOS();
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Tournoi tournoi = mapper.readValue(file, TournoiSimple.class);
+            JSONFichier.writeJsonFile(tournoi);
+
+        } catch (Exception e) {
+            System.err.println("Error reading file: " + file.getAbsolutePath() + ", " + e.getMessage());
+        }
+    }
+
+
+
 }

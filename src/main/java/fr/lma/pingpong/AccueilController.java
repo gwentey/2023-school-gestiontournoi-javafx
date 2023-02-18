@@ -2,6 +2,7 @@ package fr.lma.pingpong;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -51,7 +52,7 @@ public class AccueilController {
      */
     @FXML
     public void afficherFileChooser(ActionEvent actionEvent) {
-        /**
+
         FileChooser fileChooser = new FileChooser();
         File fichierChoisi = fileChooser.showOpenDialog(AccueilApplication.stage);
         if (fichierChoisi != null && fichierChoisi.exists() && fichierChoisi.canRead()) {
@@ -64,7 +65,7 @@ public class AccueilController {
                 e.printStackTrace();
             }
         }
-         */
+
     }
 
     /**
@@ -73,36 +74,15 @@ public class AccueilController {
      *
      * @param f Fichier choisie
      */
-    /** private void chargerUnTournoiDepuisFichier(File f) {
-        try {
-            HashMap<String, Object> map = new ObjectMapper().readValue(f, HashMap.class);
-            List<Object> matchsJson = new ObjectMapper().convertValue(map.get("matchs"), List.class);
-            List<Object> joueursJson = new ObjectMapper().convertValue(map.get("joueurs"), List.class);
+   private void chargerUnTournoiDepuisFichier(File f) {
+       try {
+           JSONFichier.lireFichierJson(f);
+           Event.fireEvent(AccueilController.getRoot(), new TournoiSupprimeEvent());
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
 
-            ArrayList<Match> matchs = new ArrayList<>();
-            for (Object o : matchsJson) {
-                matchs.add(new ObjectMapper().convertValue(o, Match.class));
-            }
-
-            ArrayList<Joueur> joueurs = new ArrayList<>();
-            for (Object o : joueursJson) {
-                joueurs.add(new ObjectMapper().convertValue(o, Joueur.class));
-            }
-            AccueilApplication.tournois.add(
-                    new TournoiSimple(
-                            (String) map.get("nom"),
-                            new LocalDateStringConverter(DateTimeFormatter.ISO_LOCAL_DATE, null).fromString((String) map.get("dateDebut")),
-                            new LocalDateStringConverter(DateTimeFormatter.ISO_LOCAL_DATE, null).fromString((String) map.get("dateFin")),
-                            (Integer) map.get("nbJoueurs"),
-                            matchs,
-                            joueurs,
-                            (String) map.get("state"),
-                            (String) map.get("ville"))
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
+   }
 
 
     /**
@@ -118,6 +98,17 @@ public class AccueilController {
         // accroche un evenement meme si on quitte la page
         root.addEventHandler(TournoiSupprimeEvent.TOURNOI_SUPPRIME, event -> {
             System.out.println("Evenement de suppression détecté !!");
+            tournois.clear();
+            tournois.addAll(JSONFichier.lireTousLesFichiersJson());
+            tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
+
+            // l'element traité dans le foreach est this et est prit en parametre
+            tournois.forEach(this::ajouterTournoiDansTilePane);
+        });
+
+        // accroche un evenement meme si on quitte la page
+        root.addEventHandler(TournoiChargeEvent.TOURNOI_CHARGE, event -> {
+            System.out.println("Evenement de chargement détecté !!");
             tournois.clear();
             tournois.addAll(JSONFichier.lireTousLesFichiersJson());
             tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
