@@ -68,7 +68,6 @@ public class AffichageTournoi8Controller implements Initializable {
         this.villeTournoi.setText(t.getVille());
         this.nomTournoi.setText(t.getNom());
         this.stadeTournoi.setText(t.getStade());
-        System.out.println();
     }
 
     public void openEditJoueurs(){
