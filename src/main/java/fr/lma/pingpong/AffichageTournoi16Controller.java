@@ -4,19 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AffichageTournoi8Controller implements Initializable {
-
+public class AffichageTournoi16Controller implements Initializable {
     @FXML
     private DatePicker dateDebutTournoi;
     @FXML
@@ -42,9 +41,32 @@ public class AffichageTournoi8Controller implements Initializable {
     private Circle match6;
     @FXML
     private Circle match7;
-
-// ...
-
+    @FXML
+    private Circle match8;
+    @FXML
+    private Circle match9;
+    @FXML
+    private Circle match10;
+    @FXML
+    private Circle match11;
+    @FXML
+    private Circle match12;
+    @FXML
+    private Circle match13;
+    @FXML
+    private Circle match14;
+    @FXML
+    private Circle match15;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Tournoi t = AccueilApplication.tournoiActuel;
+        this.dateDebutTournoi.setValue(t.getDateDebut());
+        this.dateFinTournoi.setValue(t.getDateFin());
+        this.villeTournoi.setText(t.getVille());
+        this.nomTournoi.setText(t.getNom());
+        this.stadeTournoi.setText(t.getStade());
+        System.out.println();
+    }
 
     /**
      * Bouton permettant de revenir au menu d'accueil
@@ -60,21 +82,12 @@ public class AffichageTournoi8Controller implements Initializable {
         AccueilApplication.setFXMLForStage("accueil.fxml");
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Tournoi t = AccueilApplication.tournoiActuel;
-        this.dateDebutTournoi.setValue(t.getDateDebut());
-        this.dateFinTournoi.setValue(t.getDateFin());
-        this.villeTournoi.setText(t.getVille());
-        this.nomTournoi.setText(t.getNom());
-        this.stadeTournoi.setText(t.getStade());
-    }
-
     public void openEditJoueurs(){
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
+
     @FXML
-    private void handleCircleClick(MouseEvent event) {
+    public void handleCircleClick(MouseEvent event) {
         // récupère du Circle cliqué
         Circle circle = (Circle) event.getSource();
 
@@ -116,6 +129,11 @@ public class AffichageTournoi8Controller implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Remplir le " + circle.getId());
         alert.setHeaderText(null);
+        Image img = new Image(this.getClass().getResource("img/ping-pong.png").toString());
+        ImageView imageView = new ImageView(img);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        alert.setGraphic(imageView);
 
 
         // Si la liste des joueurs est vide, afficher une alerte
@@ -185,6 +203,5 @@ public class AffichageTournoi8Controller implements Initializable {
             }
         }
     }
-    }
 
-
+}

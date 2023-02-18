@@ -115,7 +115,7 @@
                   </Label>
                   <TextField fx:id="ville" layoutX="311.0" layoutY="486.0" prefHeight="25.0" prefWidth="230.0" styleClass="textField" />
                   <Line endX="541.0" endY="550.0" startX="140.0" startY="550.0" stroke="#767676" styleClass="line" />
-                  <Button layoutX="189.0" layoutY="604.0" mnemonicParsing="false" onAction="#creerTournoi" prefHeight="50.0" prefWidth="300.0" text="Créer le tournois" textFill="WHITE">
+                  <Button layoutX="189.0" layoutY="604.0" mnemonicParsing="false" onAction="#creerTournoi" prefHeight="50.0" prefWidth="300.0" text="Créer le tournoi" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
