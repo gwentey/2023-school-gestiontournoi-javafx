@@ -75,7 +75,6 @@ public class AffichageTournoi8Controller implements Initializable {
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
 
-
     @FXML
     private void handleCircleClick(MouseEvent event) {
         Circle circle = (Circle) event.getSource();
@@ -137,12 +136,17 @@ public class AffichageTournoi8Controller implements Initializable {
 
         alert.getDialogPane().setContent(gridPane);
 
+        // Ajouter le bouton Annuler
+        ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(cancelButton);
+
         // Vérifier que les deux ChoiceBox et les deux TextField ont été remplis
         ButtonType buttonType = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (buttonType == ButtonType.OK) {
             if (choiceBox1.getValue() == null || choiceBox2.getValue() == null ||
                     textField1.getText().isEmpty() || textField2.getText().isEmpty()) {
                 Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+
                 warningAlert.setTitle("Attention !");
                 warningAlert.setHeaderText(null);
                 warningAlert.setContentText("Veuillez remplir tous les champs !");
@@ -156,8 +160,6 @@ public class AffichageTournoi8Controller implements Initializable {
                 Match match = new Match(joueur1, joueur2, score1, score2);
                 AccueilApplication.tournoiActuel.ajouterMatch(match);
             }
-        } else {
-            // Le bouton Annuler ou la croix ont été cliqués, ne rien faire
         }
     }
 
