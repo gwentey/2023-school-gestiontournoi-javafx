@@ -5,6 +5,8 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.time.LocalDate;
+
 public class TournoiController {
     @FXML
     private Label nomTournoi;
@@ -37,7 +39,8 @@ public class TournoiController {
     private void suppressionTournoi(ActionEvent event) {
         // Suppression du tournoi de l'ArrayList
         for (Tournoi tournoi : AccueilApplication.tournois) {
-            if (tournoi.getNom().equals(nomTournoi.getText())) {
+
+            if (tournoi.getNom().equals(nomTournoi.getText()) && tournoi.getDateDebut().equals(LocalDate.parse(dateTournoi.getText()))) {
                 // supression dans l'arraylist
                 AccueilApplication.tournois.remove(tournoi);
                 // supression du fichier JSON

@@ -29,19 +29,19 @@ public class AffichageTournoi8Controller implements Initializable {
     private TextField stadeTournoi;
 
     @FXML
-    private Circle circleMatch1;
+    private Circle match1;
     @FXML
-    private Circle circleMatch2;
+    private Circle match2;
     @FXML
-    private Circle circleMatch3;
+    private Circle match3;
     @FXML
-    private Circle circleMatch4;
+    private Circle match4;
     @FXML
-    private Circle circleMatch5;
+    private Circle match5;
     @FXML
-    private Circle circleMatch6;
+    private Circle match6;
     @FXML
-    private Circle circleMatch7;
+    private Circle match7;
 
 // ...
 
@@ -74,17 +74,50 @@ public class AffichageTournoi8Controller implements Initializable {
     public void openEditJoueurs(){
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
-
-
     @FXML
     private void handleCircleClick(MouseEvent event) {
+        // récupère du Circle cliqué
         Circle circle = (Circle) event.getSource();
+
+        // Créer les ChoiceBox et les TextField
+        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
+        TextField textField1 = new TextField();
+        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
+        TextField textField2 = new TextField();
+        // Remplir les ChoiceBox avec les noms des joueurs
+
+
+        // Récupérer la liste des joueurs du tournoi
+        ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
+
+        for (Joueur joueur : joueurs) {
+            choiceBox1.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox2.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox1.setPrefWidth(200);
+            choiceBox2.setPrefWidth(200);
+        }
+
+        // Vérifier si la clé existe dans la map
+        if (AccueilApplication.tournoiActuel.getMatchs().containsKey(circle.getId())) {
+            System.out.println("MATCH DETECTEEEEE");
+            Match match = AccueilApplication.tournoiActuel.getMatchs().get(circle.getId());
+            Joueur joueur1 = match.getJoueur1();
+            Joueur joueur2 = match.getJoueur2();
+            int score1 = match.getScore1();
+            int score2 = match.getScore2();
+
+            // pré-selectionner les choix
+            choiceBox1.getSelectionModel().select(joueur1.getPrenom() + " " + joueur1.getNom());
+            choiceBox2.getSelectionModel().select(joueur2.getPrenom() + " " + joueur2.getNom());
+
+            textField1.setText(String.valueOf(score1));
+            textField2.setText(String.valueOf(score2));
+        }
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Remplir le " + circle.getId());
         alert.setHeaderText(null);
 
-        // Récupérer la liste des joueurs du tournoi
-        ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
 
         // Si la liste des joueurs est vide, afficher une alerte
         if (joueurs.isEmpty()) {
@@ -96,19 +129,7 @@ public class AffichageTournoi8Controller implements Initializable {
             return;
         }
 
-        // Créer les ChoiceBox et les TextField
-        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
-        TextField textField1 = new TextField();
-        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
-        TextField textField2 = new TextField();
 
-        // Remplir les ChoiceBox avec les noms des joueurs
-        for (Joueur joueur : joueurs) {
-            choiceBox1.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
-            choiceBox2.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
-            choiceBox1.setPrefWidth(200);
-            choiceBox2.setPrefWidth(200);
-        }
 
         // Créer le GridPane
         GridPane gridPane = new GridPane();
@@ -137,12 +158,17 @@ public class AffichageTournoi8Controller implements Initializable {
 
         alert.getDialogPane().setContent(gridPane);
 
+        // Ajouter le bouton Annuler
+        ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(cancelButton);
+
         // Vérifier que les deux ChoiceBox et les deux TextField ont été remplis
         ButtonType buttonType = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (buttonType == ButtonType.OK) {
             if (choiceBox1.getValue() == null || choiceBox2.getValue() == null ||
                     textField1.getText().isEmpty() || textField2.getText().isEmpty()) {
                 Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+
                 warningAlert.setTitle("Attention !");
                 warningAlert.setHeaderText(null);
                 warningAlert.setContentText("Veuillez remplir tous les champs !");
@@ -154,11 +180,12 @@ public class AffichageTournoi8Controller implements Initializable {
                 int score1 = Integer.parseInt(textField1.getText());
                 int score2 = Integer.parseInt(textField2.getText());
                 Match match = new Match(joueur1, joueur2, score1, score2);
-                AccueilApplication.tournoiActuel.ajouterMatch(match);
+
+                AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
+
             }
-        } else {
-            // Le bouton Annuler ou la croix ont été cliqués, ne rien faire
         }
     }
-
     }
+
+

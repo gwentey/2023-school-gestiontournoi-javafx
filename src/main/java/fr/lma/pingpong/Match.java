@@ -21,6 +21,9 @@ public class Match implements Comparable<Match> {
         this.score2 = score2;
     }
 
+    // nécessaire à la déserialization
+    public Match(){}
+
     // Accesseurs
 
     public Joueur getJoueur1() {

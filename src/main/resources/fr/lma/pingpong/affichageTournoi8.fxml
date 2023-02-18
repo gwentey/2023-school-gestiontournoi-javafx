@@ -47,42 +47,42 @@
                   <Line endX="519.0" endY="350.0" layoutX="18.0" layoutY="-145.0" startX="519.0" startY="215.0" stroke="WHITE" />
                   <Label layoutX="468.0" layoutY="180.0" text="Finaliste1" textFill="WHITE" />
                   <Label layoutX="548.0" layoutY="180.0" text="Finaliste2" textFill="WHITE" />
-                  <Circle fx:id="circleMatch7" onMouseClicked="#handleCircleClick"  fill="WHITE" layoutX="537.0" layoutY="205.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match7" onMouseClicked="#handleCircleClick"  fill="WHITE" layoutX="537.0" layoutY="205.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                   <Line endX="250.0" layoutX="537.0" layoutY="205.0" startX="-250.0" stroke="WHITE" />
                   <Line endY="150.0" fill="WHITE" layoutX="287.0" layoutY="205.0" stroke="WHITE" />
                   <Line endY="150.0" fill="WHITE" layoutX="787.0" layoutY="205.0" stroke="WHITE" />
                   <Label layoutX="218.0" layoutY="330.0" text="Gagnant1" textFill="WHITE" />
                   <Label layoutX="298.0" layoutY="330.0" text="Gagnant2" textFill="WHITE" />
-                  <Circle fx:id="circleMatch6" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="287.0" layoutY="355.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match5" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="287.0" layoutY="355.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                   <Label layoutX="718.0" layoutY="330.0" text="Gagnant3" textFill="WHITE" />
                   <Label layoutX="798.0" layoutY="330.0" text="Gagnant4" textFill="WHITE" />
-                  <Circle fx:id="circleMatch5" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="787.0" layoutY="355.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match6" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="787.0" layoutY="355.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                   <Group layoutX="68.0" layoutY="435.0">
                      <children>
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
-                        <Circle fx:id="circleMatch4" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="match1" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Group>
                   <Group layoutX="368.0" layoutY="435.0">
                      <children>
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
-                        <Circle fx:id="circleMatch3" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="match2" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Group>
                   <Group layoutX="568.0" layoutY="435.0">
                      <children>
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endX="150.0" endY="-80.0" layoutX="75.60002136230469" startY="-80.0" stroke="WHITE" />
-                        <Circle fx:id="circleMatch2" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="match3" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Group>
                   <Group layoutX="868.0" layoutY="435.0">
                      <children>
                         <Line endY="80.0" layoutX="75.0" layoutY="0.5" startY="-80.0" stroke="WHITE" />
                         <Line endY="-80.0" layoutX="75.60002136230469" startX="-150.0" startY="-80.0" stroke="WHITE" />
-                        <Circle fx:id="circleMatch1" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="match4" onMouseClicked="#handleCircleClick" fill="WHITE" layoutX="75.0" layoutY="80.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Group>
                   <Group layoutX="35.0" layoutY="510.0" />
