@@ -74,16 +74,50 @@ public class AffichageTournoi8Controller implements Initializable {
     public void openEditJoueurs(){
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
-
     @FXML
     private void handleCircleClick(MouseEvent event) {
+        // récupère du Circle cliqué
         Circle circle = (Circle) event.getSource();
+
+        // Créer les ChoiceBox et les TextField
+        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
+        TextField textField1 = new TextField();
+        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
+        TextField textField2 = new TextField();
+        // Remplir les ChoiceBox avec les noms des joueurs
+
+
+        // Récupérer la liste des joueurs du tournoi
+        ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
+
+        for (Joueur joueur : joueurs) {
+            choiceBox1.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox2.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
+            choiceBox1.setPrefWidth(200);
+            choiceBox2.setPrefWidth(200);
+        }
+
+        // Vérifier si la clé existe dans la map
+        if (AccueilApplication.tournoiActuel.getMatchs().containsKey(circle.getId())) {
+            System.out.println("MATCH DETECTEEEEE");
+            Match match = AccueilApplication.tournoiActuel.getMatchs().get(circle.getId());
+            Joueur joueur1 = match.getJoueur1();
+            Joueur joueur2 = match.getJoueur2();
+            int score1 = match.getScore1();
+            int score2 = match.getScore2();
+
+            // pré-selectionner les choix
+            choiceBox1.getSelectionModel().select(joueur1.getPrenom() + " " + joueur1.getNom());
+            choiceBox2.getSelectionModel().select(joueur2.getPrenom() + " " + joueur2.getNom());
+
+            textField1.setText(String.valueOf(score1));
+            textField2.setText(String.valueOf(score2));
+        }
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Remplir le " + circle.getId());
         alert.setHeaderText(null);
 
-        // Récupérer la liste des joueurs du tournoi
-        ArrayList<Joueur> joueurs = AccueilApplication.tournoiActuel.getJoueurs();
 
         // Si la liste des joueurs est vide, afficher une alerte
         if (joueurs.isEmpty()) {
@@ -95,19 +129,7 @@ public class AffichageTournoi8Controller implements Initializable {
             return;
         }
 
-        // Créer les ChoiceBox et les TextField
-        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
-        TextField textField1 = new TextField();
-        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
-        TextField textField2 = new TextField();
 
-        // Remplir les ChoiceBox avec les noms des joueurs
-        for (Joueur joueur : joueurs) {
-            choiceBox1.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
-            choiceBox2.getItems().add(joueur.getPrenom() + " " + joueur.getNom());
-            choiceBox1.setPrefWidth(200);
-            choiceBox2.setPrefWidth(200);
-        }
 
         // Créer le GridPane
         GridPane gridPane = new GridPane();
@@ -164,5 +186,6 @@ public class AffichageTournoi8Controller implements Initializable {
             }
         }
     }
-
     }
+
+
