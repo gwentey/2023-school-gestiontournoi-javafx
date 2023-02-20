@@ -24,6 +24,9 @@
                      </font>
                   </Label>
                   <Button layoutX="14.0" layoutY="59.0" mnemonicParsing="false" onAction="#buttonClickMenu" text="Retour au menu">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -140,6 +143,9 @@
                   <Label layoutX="400.0" layoutY="398.0" text="Gagnant4" textFill="WHITE" />
                   <Label layoutX="325.0" layoutY="398.0" text="Gagnant3" textFill="WHITE" />
                   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openEditJoueurs" text="Editer les joueurs">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                      <font>
                         <Font size="15.0" />
                      </font>
