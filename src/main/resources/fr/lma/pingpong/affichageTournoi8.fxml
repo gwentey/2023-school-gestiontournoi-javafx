@@ -26,6 +26,9 @@
                      </font>
                   </Label>
                   <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#buttonClickMenu" text="Retour au menu">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -108,6 +111,9 @@
                      </children>
                   </Group>
                   <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#openEditJoueurs" text="Editer les joueurs">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                      <font>
                         <Font size="15.0" />
                      </font>
