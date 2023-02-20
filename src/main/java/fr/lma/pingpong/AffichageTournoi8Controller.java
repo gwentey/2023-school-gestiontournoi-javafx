@@ -13,6 +13,7 @@ import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class AffichageTournoi8Controller implements Initializable {
@@ -52,6 +53,17 @@ public class AffichageTournoi8Controller implements Initializable {
      * @param actionEvent
      */
     public void buttonClickMenu(ActionEvent actionEvent) {
+
+        if(nomTournoi.getText() != AccueilApplication.tournoiActuel.getNom() || dateDebutTournoi.getValue() != AccueilApplication.tournoiActuel.getDateDebut()) {
+            JSONFichier.supprimerTournoi(AccueilApplication.tournoiActuel);
+        }
+
+        AccueilApplication.tournoiActuel.setNom(nomTournoi.getText());
+        AccueilApplication.tournoiActuel.setDateDebut(dateDebutTournoi.getValue());
+        AccueilApplication.tournoiActuel.setDateFin(dateFinTournoi.getValue());
+        AccueilApplication.tournoiActuel.setStade(stadeTournoi.getText());
+        AccueilApplication.tournoiActuel.setVille(villeTournoi.getText());
+
         JSONFichier.writeJsonFile(AccueilApplication.tournoiActuel);
 
         // les tournois sont chargés à nouveau après la création
@@ -127,7 +139,6 @@ public class AffichageTournoi8Controller implements Initializable {
             noJoueursAlert.showAndWait();
             return;
         }
-
 
 
         // Créer le GridPane
