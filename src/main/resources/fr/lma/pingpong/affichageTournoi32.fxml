@@ -11,6 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.Cursor?>
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@styles/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.lma.pingpong.AffichageTournoi32Controller">
    <children>
       <Pane prefHeight="150.0" prefWidth="1080.0" styleClass="panel-principal">
@@ -22,6 +23,9 @@
                </font>
             </Label>
             <Button layoutX="15.0" layoutY="75.0" mnemonicParsing="false" onAction="#buttonClickMenu" text="Retour au menu">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <font>
                   <Font size="15.0" />
                </font>
@@ -41,6 +45,9 @@
       <Pane layoutY="150.0" prefHeight="570.0" prefWidth="1080.0" styleClass="panel-secondaire">
          <children>
             <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#openEditJoueurs" text="Editer les joueurs">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <font>
                   <Font size="15.0" />
                </font>
@@ -52,9 +59,21 @@
                   <Line endX="480.0" fill="WHITE" layoutX="35.0" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="34.0" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="515.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match29" fill="WHITE" layoutX="34.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match31" fill="WHITE" layoutX="275.0" layoutY="112.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match30" fill="WHITE" layoutX="515.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match29" fill="WHITE" layoutX="34.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" >
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+                  </Circle>
+                  <Circle fx:id="match31" fill="WHITE" layoutX="275.0" layoutY="112.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" >
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match30" fill="WHITE" layoutX="515.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" >
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                   <Label layoutX="291.0" layoutY="96.0" text="Finaliste2" textFill="WHITE" />
                   <Label layoutX="211.0" layoutY="96.0" text="Finaliste1" textFill="WHITE" />
                </children>
@@ -64,8 +83,17 @@
                   <Line endX="200.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="200.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match25" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match26" fill="WHITE" layoutX="200.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match25" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Circle>
+
+                  <Circle fx:id="match26" fill="WHITE" layoutX="200.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="686.0" layoutY="118.0">
@@ -73,8 +101,16 @@
                   <Line endX="200.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="200.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match27" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match28" fill="WHITE" layoutX="200.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match27" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match28" fill="WHITE" layoutX="200.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="811.0" layoutY="199.0">
@@ -82,8 +118,16 @@
                   <Line endX="150.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="150.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match23" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match24" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match23" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match24" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="610.0" layoutY="199.0">
@@ -91,8 +135,16 @@
                   <Line endX="150.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="150.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match21" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match22" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match21" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match22" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="329.0" layoutY="199.0">
@@ -100,8 +152,16 @@
                   <Line endX="150.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="150.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match19" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match20" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match19" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match20" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="128.0" layoutY="199.0">
@@ -109,8 +169,16 @@
                   <Line endX="150.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="150.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match17" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match18" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match17" fill="WHITE" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match18" fill="WHITE" layoutX="150.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="77.0" layoutY="280.0">
@@ -118,8 +186,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match1" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match2" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match1" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match2" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="195.0" layoutY="280.0">
@@ -127,8 +203,18 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match3" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match4" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match3" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match4" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+
+
                </children>
             </Group>
             <Group layoutX="310.0" layoutY="280.0">
@@ -136,8 +222,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match5" fill="WHITE" layoutX="1.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match6" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match5" fill="WHITE" layoutX="1.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match6" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="429.0" layoutY="280.0">
@@ -145,8 +239,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match7" fill="WHITE" layoutX="1.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match8" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match7" fill="WHITE" layoutX="1.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match8" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="559.0" layoutY="280.0">
@@ -154,8 +256,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match9" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match10" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match9" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match10" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="675.0" layoutY="280.0">
@@ -163,8 +273,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match11" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match12" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match11" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match12" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="795.0" layoutY="280.0">
@@ -172,8 +290,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match13" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match14" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match13" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match14" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
             <Group layoutX="911.0" layoutY="280.0">
@@ -181,8 +307,16 @@
                   <Line endX="100.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="100.0" layoutY="112.5" stroke="WHITE" />
-                  <Circle fx:id="match15" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="match16" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="match15" fill="WHITE" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fx:id="match16" fill="WHITE" layoutX="100.0" layoutY="190.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
                </children>
             </Group>
          </children>
