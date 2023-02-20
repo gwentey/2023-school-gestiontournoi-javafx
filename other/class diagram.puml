@@ -1,0 +1,214 @@
+@startuml
+class fr.lma.pingpong.AffichageTournoi8Controller {
+- DatePicker dateDebutTournoi
+- DatePicker dateFinTournoi
+- TextField nomTournoi
+- TextField villeTournoi
+- TextField stadeTournoi
+- Circle match1
+- Circle match2
+- Circle match3
+- Circle match4
+- Circle match5
+- Circle match6
+- Circle match7
++ void buttonClickMenu(ActionEvent)
++ void initialize(URL,ResourceBundle)
++ void openEditJoueurs()
+- void handleCircleClick(MouseEvent)
+}
+class fr.lma.pingpong.CreerTournoiController {
+- TextField nomTournoi
+- DatePicker dateDebutTournoi
+- DatePicker dateFinTournoi
+- ToggleGroup nbJoueur
+- RadioButton nbJoueur8
+- RadioButton nbJoueur16
+- RadioButton nbJoueur32
+- ToggleGroup typeT
+- RadioButton typeTSimple
+- RadioButton typeTDouble
+- TextField stade
+- TextField ville
++ void afficherSceneMenu(ActionEvent)
++ void creerTournoi(ActionEvent)
+}
+class fr.lma.pingpong.AffichageTournoi16Controller {
+- DatePicker dateDebutTournoi
+- DatePicker dateFinTournoi
+- TextField nomTournoi
+- TextField villeTournoi
+- TextField stadeTournoi
+- Circle match1
+- Circle match2
+- Circle match3
+- Circle match4
+- Circle match5
+- Circle match6
+- Circle match7
+- Circle match8
+- Circle match9
+- Circle match10
+- Circle match11
+- Circle match12
+- Circle match13
+- Circle match14
+- Circle match15
++ void initialize(URL,ResourceBundle)
++ void buttonClickMenu(ActionEvent)
++ void openEditJoueurs()
++ void handleCircleClick(MouseEvent)
+}
+class fr.lma.pingpong.TableauJoueursController {
+~ TableView<Joueur> tableview
+~ TextField nomJoueur
+~ TextField prenomJoueur
+~ TableColumn<Joueur,String> noms
+~ TableColumn<Joueur,String> prenoms
+- int nbJoueurs
+- ObservableList<Joueur> joueurs
++ void initialize(URL,ResourceBundle)
++ void retourTournoi()
++ void ajouterJoueur()
+}
+class fr.lma.pingpong.AccueilApplication {
++ {static} Stage stage
++ {static} Tournoi tournoiActuel
++ {static} ArrayList<Tournoi> tournois
++ {static} void main(String[])
++ void start(Stage)
++ {static} void setFXMLForStage(String)
+}
+class fr.lma.pingpong.Match {
+- String date
+- Joueur joueur1
+- Joueur joueur2
+- int score1
+- int score2
+- int heure
++ <<Create>> Match(Joueur,Joueur,int,int)
++ <<Create>> Match()
++ Joueur getJoueur1()
++ void setJoueur1(Joueur)
++ Joueur getJoueur2()
++ void setJoueur2(Joueur)
++ int getScore1()
++ int getScore2()
++ void setScore1(int)
++ void setScore2(int)
++ String getDate()
++ int getHeure()
++ void setDate(String)
++ void setHeure(int)
++ int convertHeureStringVersInt(String)
++ String convertHeureIntVersString(int)
++ int compareTo(Match)
+}
+class fr.lma.pingpong.Joueur {
+- String nom
+- String prenom
++ <<Create>> Joueur(String,String)
++ <<Create>> Joueur()
++ String getNom()
++ String getPrenom()
++ void setNom(String)
++ void setPrenom(String)
+}
+class fr.lma.pingpong.AccueilController {
+- TilePane tournoisTilePane
+- {static} Parent root
++ {static} Parent getRoot()
++ void afficherSceneCreationTournoi(ActionEvent)
++ void afficherFileChooser(ActionEvent)
+- void chargerUnTournoiDepuisFichier(File)
++ void initialize()
+- void ajouterTournoiDansTilePane(Tournoi)
+}
+class fr.lma.pingpong.TournoiChargeEvent {
++ {static} EventType<TournoiChargeEvent> TOURNOI_CHARGE
++ <<Create>> TournoiChargeEvent()
+}
+class fr.lma.pingpong.TournoiDouble {
++ <<Create>> TournoiDouble(String,LocalDate,LocalDate,int,Map<String,Match>,ArrayList<Joueur>,String,String)
+}
+class fr.lma.pingpong.TournoiSimple {
++ <<Create>> TournoiSimple(String,LocalDate,LocalDate,int,Map<String,Match>,ArrayList<Joueur>,String,String)
++ <<Create>> TournoiSimple()
+}
+class fr.lma.pingpong.ModifierTournoiController {
+- DatePicker dateDebutTournoi
+- DatePicker dateFinTournoi
+- TextField nomTournoi
+- TextField villeTournoi
+- TextField stadeTournoi
++ void afficherSceneMenu(ActionEvent)
++ void modifierTournoi(ActionEvent)
+}
+abstract class fr.lma.pingpong.Tournoi {
+- String nom
+- LocalDate dateDebut
+- LocalDate dateFin
+- int nbJoueurs
+- Map<String,Match> matchs
+- ArrayList<Joueur> joueurs
+- String stade
+- String ville
++ <<Create>> Tournoi(String,LocalDate,LocalDate,int,Map<String,Match>,ArrayList<Joueur>,String,String)
++ <<Create>> Tournoi()
++ String getNom()
++ LocalDate getDateDebut()
++ LocalDate getDateFin()
++ int getNbJoueurs()
++ Map<String,Match> getMatchs()
++ ArrayList<Joueur> getJoueurs()
++ Match getMatchByIndex(int)
++ String getStade()
++ String getVille()
++ void setNom(String)
++ void setDateDebut(LocalDate)
++ void setDateFin(LocalDate)
++ void setNbJoueurs(int)
++ void setMatchs(Map<String,Match>)
++ void setJoueurs(ArrayList<Joueur>)
++ void ajouterMatch(String,Match)
++ void setStade(String)
++ void setVille(String)
++ void addJoueur(Joueur)
++ int compareTo(Tournoi)
++ String toString()
+}
+class fr.lma.pingpong.TournoiController {
+- Label nomTournoi
+- Label villeTournoi
+- Label dateTournoi
++ void setTournoi(Tournoi)
+- void suppressionTournoi(ActionEvent)
++ void afficherSceneModifierTournoi(ActionEvent)
+}
+class fr.lma.pingpong.JSONFichier {
+- {static} String SE
+- {static} String CHEMIN_DONNEES_O
+- String chemin
++ {static} void supprimerTournoi(Tournoi)
++ {static} void whatIsMyOS()
++ {static} void writeJsonFile(Tournoi)
++ {static} ArrayList<Tournoi> lireTousLesFichiersJson()
++ {static} void lireFichierJson(File)
+}
+class fr.lma.pingpong.TournoiSupprimeEvent {
++ {static} EventType<TournoiSupprimeEvent> TOURNOI_SUPPRIME
++ <<Create>> TournoiSupprimeEvent()
+}
+
+
+javafx.fxml.Initializable <|.. fr.lma.pingpong.AffichageTournoi8Controller
+javafx.fxml.Initializable <|.. fr.lma.pingpong.AffichageTournoi16Controller
+javafx.fxml.Initializable <|.. fr.lma.pingpong.TableauJoueursController
+javafx.application.Application <|-- fr.lma.pingpong.AccueilApplication
+fr.lma.pingpong.Comparable <|.. fr.lma.pingpong.Match
+javafx.event.Event <|-- fr.lma.pingpong.TournoiChargeEvent
+fr.lma.pingpong.Tournoi <|-- fr.lma.pingpong.TournoiDouble
+fr.lma.pingpong.Tournoi <|-- fr.lma.pingpong.TournoiSimple
+fr.lma.pingpong.Comparable <|.. fr.lma.pingpong.Tournoi
+javafx.event.Event <|-- fr.lma.pingpong.TournoiSupprimeEvent
+@enduml
