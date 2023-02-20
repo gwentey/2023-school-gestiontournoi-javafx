@@ -79,6 +79,8 @@ public class TournoiController {
                 AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
             }else if (AccueilApplication.tournoiActuel.getNbJoueurs()==16){
                 AccueilApplication.setFXMLForStage("affichageTournoi16.fxml");
+            }else if (AccueilApplication.tournoiActuel.getNbJoueurs()==32){
+                AccueilApplication.setFXMLForStage("affichageTournoi32.fxml");
             }
         }
     }

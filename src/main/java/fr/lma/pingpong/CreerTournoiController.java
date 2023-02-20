@@ -82,6 +82,8 @@ public class CreerTournoiController {
                 AccueilApplication.setFXMLForStage("affichageTournoi8.fxml");
             }else if(nbJoueur.getSelectedToggle().equals(nbJoueur16)){
                 AccueilApplication.setFXMLForStage("affichageTournoi16.fxml");
+            }else if(nbJoueur.getSelectedToggle().equals(nbJoueur32)){
+                AccueilApplication.setFXMLForStage("affichageTournoi32.fxml");
             }
         } else {
             tournoi = new TournoiDouble(nomTournoi.getText(),
