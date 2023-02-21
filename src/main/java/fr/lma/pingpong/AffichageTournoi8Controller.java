@@ -3,6 +3,8 @@ package fr.lma.pingpong;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
@@ -150,10 +152,44 @@ public class AffichageTournoi8Controller implements Initializable {
         alert.setTitle("Remplir le " + circle.getId());
         alert.setHeaderText(null);
 
+        // Ajouter l'écouteur d'événements pour changer le curseur en pointeur
+        alert.getDialogPane().setOnMouseEntered(event1 -> {
+            Scene scene = alert.getDialogPane().getScene();
+            if (scene != null) {
+                scene.setCursor(Cursor.HAND);
+            }
+        });
+
+        // Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
+        alert.getDialogPane().setOnMouseExited(event2 -> {
+            Scene scene = alert.getDialogPane().getScene();
+            if (scene != null) {
+                scene.setCursor(Cursor.DEFAULT);
+            }
+        });
+
 
         // Si la liste des joueurs est vide, afficher une alerte
         if (joueurs.isEmpty()) {
             Alert noJoueursAlert = new Alert(Alert.AlertType.WARNING);
+
+
+			// Ajouter l'écouteur d'événements pour changer le curseur en pointeur
+			noJoueursAlert.getDialogPane().setOnMouseEntered(event3 -> {
+				Scene scene = noJoueursAlert.getDialogPane().getScene();
+				if (scene != null) {
+					scene.setCursor(Cursor.HAND);
+				}
+			});
+
+			// Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
+			noJoueursAlert.getDialogPane().setOnMouseExited(event4 -> {
+				Scene scene = noJoueursAlert.getDialogPane().getScene();
+				if (scene != null) {
+					scene.setCursor(Cursor.DEFAULT);
+				}
+			});
+
             noJoueursAlert.setTitle("Liste de joueurs vide");
             noJoueursAlert.setHeaderText(null);
             noJoueursAlert.setContentText("La liste des joueurs est vide. Veuillez ajouter des joueurs.");
@@ -193,12 +229,30 @@ public class AffichageTournoi8Controller implements Initializable {
         ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().add(cancelButton);
 
+
         // Vérifier que les deux ChoiceBox et les deux TextField ont été remplis
         ButtonType buttonType = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (buttonType == ButtonType.OK) {
             if (choiceBox1.getValue() == null || choiceBox2.getValue() == null ||
                     textField1.getText().isEmpty() || textField2.getText().isEmpty()) {
                 Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+
+
+				// Ajouter l'écouteur d'événements pour changer le curseur en pointeur
+				warningAlert.getDialogPane().setOnMouseEntered(event3 -> {
+					Scene scene = warningAlert.getDialogPane().getScene();
+					if (scene != null) {
+						scene.setCursor(Cursor.HAND);
+					}
+				});
+
+				// Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
+				warningAlert.getDialogPane().setOnMouseExited(event4 -> {
+					Scene scene = warningAlert.getDialogPane().getScene();
+					if (scene != null) {
+						scene.setCursor(Cursor.DEFAULT);
+					}
+				});
 
                 warningAlert.setTitle("Attention !");
                 warningAlert.setHeaderText(null);
