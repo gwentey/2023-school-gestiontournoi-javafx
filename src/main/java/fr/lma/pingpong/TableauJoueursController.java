@@ -49,8 +49,8 @@ public class TableauJoueursController implements Initializable {
     }
 
     public void ajouterJoueur(){
-        String prenom = this.prenomJoueur.getText();
-        String nom = this.nomJoueur.getText();
+        String prenom = this.prenomJoueur.getText().substring(0,1).toUpperCase() + this.prenomJoueur.getText().substring(1).toLowerCase();
+        String nom = this.nomJoueur.getText().substring(0,1).toUpperCase() + this.nomJoueur.getText().substring(1).toLowerCase();
         AccueilApplication.tournoiActuel.addJoueur(new Joueur(nom,prenom));
         joueurs.clear();
         joueurs.addAll(AccueilApplication.tournoiActuel.getJoueurs());

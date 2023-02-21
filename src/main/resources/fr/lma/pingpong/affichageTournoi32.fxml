@@ -295,13 +295,11 @@
             </Group>
             <Group layoutX="270.0" layoutY="37.0">
                <children>
-                  <Label layoutX="248.0" layoutY="6.0" text="Vainqueur" textFill="WHITE" />
+                  <Label fx:id="vainqueur" layoutX="248.0" layoutY="6.0" text="Vainqueur" textFill="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="275.0" layoutY="32.5" stroke="WHITE" />
                   <Line endX="480.0" fill="WHITE" layoutX="35.0" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="34.0" layoutY="112.5" stroke="WHITE" />
                   <Line endY="80.0" fill="WHITE" layoutX="515.0" layoutY="112.5" stroke="WHITE" />
-                  <Label layoutX="291.0" layoutY="96.0" text="Finaliste2" textFill="WHITE" />
-                  <Label layoutX="211.0" layoutY="96.0" text="Finaliste1" textFill="WHITE" />
                   <Circle fx:id="match29" fill="WHITE" layoutX="34.0" layoutY="195.0" onMouseClicked="#handleCircleClick" radius="8.0" stroke="BLACK" strokeType="INSIDE">
                   <cursor>
                      <Cursor fx:constant="HAND" />

@@ -93,6 +93,8 @@ public class AffichageTournoi32Controller implements Initializable {
     private Circle match30;
     @FXML
     private Circle match31;
+    @FXML
+    private Label vainqueur;
 
     private ArrayList<Circle> circles = new ArrayList<>();
 
@@ -144,15 +146,24 @@ public class AffichageTournoi32Controller implements Initializable {
                 c.setFill(Color.rgb(154,159,167));
             }
         }
-        for(int i =0; i<t.getMatchs().size();i++){
-            for (Circle c:circles){
-                if(circleStr.contains(c.getId())){
-                    c.setFill(Color.rgb(24,25,28));
-                }else{
-                    c.setFill(Color.rgb(154,159,167));
-                }
+        for (Circle c:circles){
+            if(circleStr.contains(c.getId())){
+                c.setFill(Color.rgb(24,25,28));
+            }else{
+                c.setFill(Color.rgb(154,159,167));
             }
         }
+        if (circleStr.contains("match31")) {
+            Match m = AccueilApplication.tournoiActuel.getMatchs().get("match31");
+            if (m.getScore1() > m.getScore2()) {
+                vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
+            } else {
+                vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
+            }
+        }else{
+            vainqueur.setText("");
+        }
+
     }
 
     /**
@@ -356,6 +367,16 @@ public class AffichageTournoi32Controller implements Initializable {
                             c.setFill(Color.rgb(154,159,167));
                         }
                     }
+                }
+                if (circleStr.contains("match31")) {
+                    Match m = AccueilApplication.tournoiActuel.getMatchs().get("match31");
+                    if (m.getScore1() > m.getScore2()) {
+                        vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
+                    } else {
+                        vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
+                    }
+                }else{
+                    vainqueur.setText("");
                 }
             }
         }
