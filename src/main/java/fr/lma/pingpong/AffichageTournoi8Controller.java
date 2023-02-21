@@ -141,14 +141,13 @@ public class AffichageTournoi8Controller implements Initializable {
 
         // Vérifier si la clé existe dans la map
         if (AccueilApplication.tournoiActuel.getMatchs().containsKey(circle.getId())) {
-            System.out.println("MATCH DETECTEEEEE");
             Match match = AccueilApplication.tournoiActuel.getMatchs().get(circle.getId());
             Joueur joueur1 = match.getJoueur1();
             Joueur joueur2 = match.getJoueur2();
             int score1 = match.getScore1();
             int score2 = match.getScore2();
 
-            // pré-selectionner les choix
+            // présélectionner les choix
             choiceBox1.getSelectionModel().select(joueur1.getPrenom() + " " + joueur1.getNom());
             choiceBox2.getSelectionModel().select(joueur2.getPrenom() + " " + joueur2.getNom());
 
@@ -267,7 +266,7 @@ public class AffichageTournoi8Controller implements Initializable {
                 warningAlert.setContentText("Veuillez remplir tous les champs !");
                 warningAlert.showAndWait();
             } else {
-                // Les champs sont remplis, ajouter les informations du match à la liste des matchs
+                // Les champs sont remplis. Ajouter les informations du match à la liste des matchs
                 Joueur joueur1 = joueurs.get(choiceBox1.getSelectionModel().getSelectedIndex());
                 Joueur joueur2 = joueurs.get(choiceBox2.getSelectionModel().getSelectedIndex());
                 int score1 = Integer.parseInt(textField1.getText());
