@@ -139,6 +139,11 @@ public class AffichageTournoi32Controller implements Initializable {
         circles.add(this.match31);
 
         Set<String> circleStr = t.getMatchs().keySet();
+        if(t.getMatchs().isEmpty()){
+            for (Circle c:circles){
+                c.setFill(Color.rgb(154,159,167));
+            }
+        }
         for(int i =0; i<t.getMatchs().size();i++){
             for (Circle c:circles){
                 if(circleStr.contains(c.getId())){
