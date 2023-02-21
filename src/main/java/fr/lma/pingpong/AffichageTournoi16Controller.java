@@ -61,6 +61,10 @@ public class AffichageTournoi16Controller implements Initializable {
     private Circle match14;
     @FXML
     private Circle match15;
+
+    @FXML
+    private Label vainqueur;
+
     private ArrayList<Circle> circles = new ArrayList<>();
 
     @Override
@@ -89,20 +93,30 @@ public class AffichageTournoi16Controller implements Initializable {
         circles.add(this.match15);
 
         Set<String> circleStr = t.getMatchs().keySet();
-        if(t.getMatchs().isEmpty()){
-            for (Circle c:circles){
-                c.setFill(Color.rgb(154,159,167));
+        if (t.getMatchs().isEmpty()) {
+            for (Circle c : circles) {
+                c.setFill(Color.rgb(154, 159, 167));
             }
         }
-        for(int i =0; i<t.getMatchs().size();i++){
-            for (Circle c:circles){
-                if(circleStr.contains(c.getId())){
-                    c.setFill(Color.rgb(24,25,28));
-                }else{
-                    c.setFill(Color.rgb(154,159,167));
-                }
+
+        for (Circle c : circles) {
+            if (circleStr.contains(c.getId())) {
+                c.setFill(Color.rgb(24, 25, 28));
+            } else {
+                c.setFill(Color.rgb(154, 159, 167));
             }
         }
+        if (circleStr.contains("match15")) {
+            Match m = AccueilApplication.tournoiActuel.getMatchs().get("match15");
+            if (m.getScore1() > m.getScore2()) {
+                vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
+            } else {
+                vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
+            }
+        }else{
+            vainqueur.setText("");
+        }
+
     }
 
     /**
@@ -112,7 +126,7 @@ public class AffichageTournoi16Controller implements Initializable {
      */
     public void buttonClickMenu(ActionEvent actionEvent) {
 
-        if(nomTournoi.getText() != AccueilApplication.tournoiActuel.getNom() || dateDebutTournoi.getValue() != AccueilApplication.tournoiActuel.getDateDebut()) {
+        if (nomTournoi.getText() != AccueilApplication.tournoiActuel.getNom() || dateDebutTournoi.getValue() != AccueilApplication.tournoiActuel.getDateDebut()) {
             JSONFichier.supprimerTournoi(AccueilApplication.tournoiActuel);
         }
 
@@ -130,7 +144,7 @@ public class AffichageTournoi16Controller implements Initializable {
         AccueilApplication.setFXMLForStage("accueil.fxml");
     }
 
-    public void openEditJoueurs(){
+    public void openEditJoueurs() {
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
 
@@ -228,7 +242,6 @@ public class AffichageTournoi16Controller implements Initializable {
         }
 
 
-
         // Créer le GridPane
         GridPane gridPane = new GridPane();
         gridPane.setHgap(10);
@@ -299,14 +312,22 @@ public class AffichageTournoi16Controller implements Initializable {
                 AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
 
                 Set<String> circleStr = AccueilApplication.tournoiActuel.getMatchs().keySet();
-                for(int i =0; i<AccueilApplication.tournoiActuel.getMatchs().size();i++){
-                    for (Circle c:circles){
-                        if(circleStr.contains(c.getId())){
-                            c.setFill(Color.rgb(24,25,28));
-                        }else{
-                            c.setFill(Color.rgb(154,159,167));
-                        }
+                for (Circle c : circles) {
+                    if (circleStr.contains(c.getId())) {
+                        c.setFill(Color.rgb(24, 25, 28));
+                    } else {
+                        c.setFill(Color.rgb(154, 159, 167));
                     }
+                }
+                if (circleStr.contains("match15")) {
+                    Match m = AccueilApplication.tournoiActuel.getMatchs().get("match15");
+                    if (m.getScore1() > m.getScore2()) {
+                        vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
+                    } else {
+                        vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
+                    }
+                }else{
+                    vainqueur.setText("");
                 }
             }
         }
