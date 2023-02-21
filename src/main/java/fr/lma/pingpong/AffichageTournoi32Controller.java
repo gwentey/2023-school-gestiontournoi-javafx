@@ -1,6 +1,5 @@
 package fr.lma.pingpong;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -13,9 +12,9 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -96,9 +95,14 @@ public class AffichageTournoi32Controller implements Initializable {
     @FXML
     private Label vainqueur;
 
-    private ArrayList<Circle> circles = new ArrayList<>();
+    private final ArrayList<Circle> circles = new ArrayList<>();
 
-
+    /**
+     * Appelée au démarrage de la fenêtre
+     * Ajoute les circle à l'ArrayList
+     * Met à jour les champs du tournoi
+     * Met de la couleur aux circles
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Tournoi t = AccueilApplication.tournoiActuel;
@@ -168,12 +172,10 @@ public class AffichageTournoi32Controller implements Initializable {
 
     /**
      * Bouton permettant de revenir au menu d'accueil
-     *
-     * @param actionEvent
      */
-    public void buttonClickMenu(ActionEvent actionEvent) {
+    public void buttonClickMenu() {
 
-        if(nomTournoi.getText() != AccueilApplication.tournoiActuel.getNom() || dateDebutTournoi.getValue() != AccueilApplication.tournoiActuel.getDateDebut()) {
+        if(!nomTournoi.getText().equals(AccueilApplication.tournoiActuel.getNom()) || !dateDebutTournoi.getValue().equals(AccueilApplication.tournoiActuel.getDateDebut())) {
             JSONFichier.supprimerTournoi(AccueilApplication.tournoiActuel);
         }
 
@@ -191,10 +193,16 @@ public class AffichageTournoi32Controller implements Initializable {
         AccueilApplication.setFXMLForStage("accueil.fxml");
     }
 
+    /**
+     * Permet d'ouvrir le tableau des joueurs
+     */
     public void openEditJoueurs(){
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
 
+    /**
+     * Détecte un clic sur un circle
+     */
     @FXML
     public void handleCircleClick(MouseEvent event) {
         // récupère du Circle cliqué
@@ -238,7 +246,7 @@ public class AffichageTournoi32Controller implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Remplir le " + circle.getId());
         alert.setHeaderText(null);
-        Image img = new Image(this.getClass().getResource("img/ping-pong.png").toString());
+        Image img = new Image(Objects.requireNonNull(this.getClass().getResource("img/ping-pong.png")).toString());
         ImageView imageView = new ImageView(img);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);

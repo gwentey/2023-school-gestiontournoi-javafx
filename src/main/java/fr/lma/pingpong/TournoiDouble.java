@@ -17,7 +17,7 @@ public class TournoiDouble extends Tournoi {
      * @param p_nom Nom du Tournoi
      * @param p_dateDebut Date de début du Tournoi
      * @param p_dateFin Date de fin du Tournoi
-     * @param p_nbJoueurs Nombre de Joueur du Tournoi
+     * @param p_nbJoueurs Nombre de joueurs du Tournoi
      * @param p_matchs Matchs du Tournoi
      * @param p_stade Stade où se déroule le Tournoi
      * @param p_ville Ville dans laquelle se trouve le stade

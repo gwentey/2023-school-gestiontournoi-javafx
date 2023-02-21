@@ -7,13 +7,18 @@ public class Match implements Comparable<Match> {
 
     private Joueur joueur1;
     private Joueur joueur2;
-
     private int score1;
     private int score2;
-
     private int heure; // en seconde
 
-    // Constructeur
+    /**
+     * Constructeur de la classe Match
+     *
+     * @param joueur1 joueur 1
+     * @param joueur2 joueur 2
+     * @param score1 score 1
+     * @param score2 score 2
+     */
     public Match(Joueur joueur1, Joueur joueur2, int score1, int score2) {
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
@@ -21,7 +26,7 @@ public class Match implements Comparable<Match> {
         this.score2 = score2;
     }
 
-    // nécessaire à la déserialization
+    // nécessaire à la deserialization
     public Match(){}
 
     // Accesseurs
@@ -54,8 +59,8 @@ public class Match implements Comparable<Match> {
     }
 
 
-    public void setScore2(int scoreé) {
-        this.score2 = scoreé;
+    public void setScore2(int score) {
+        this.score2 = score;
     }
 
     // Getter

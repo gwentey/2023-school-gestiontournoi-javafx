@@ -1,7 +1,6 @@
 package fr.lma.pingpong;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,7 +12,7 @@ import java.util.Objects;
 
 public class AccueilApplication extends Application {
 
-    // Attribut statique falicitant la modification du .fxml utilisé par le stage courrant
+    // Attribut statique facilitant la modification de .fxml utilisé par le stage courant
     public static Stage stage;
 
     public static Tournoi tournoiActuel;
@@ -45,7 +44,7 @@ public class AccueilApplication extends Application {
     }
 
     /**
-     * Permet de changer le fichier FXML couremment utilisé par le stage (fenêtre d'application) ouverte
+     * Permet de changer le fichier FXML couramment utilisé par le stage (fenêtre d'application) ouverte
      * @param nomFichierFXML Nom du fichier FXML (avec extension) à charger
      */
     public static void setFXMLForStage(String nomFichierFXML) {
@@ -56,9 +55,9 @@ public class AccueilApplication extends Application {
             stage.setScene(scene);
         } catch (IOException ioe) {
             System.err.println("Le Fichier FXML "+nomFichierFXML+" n'a pas pu être chargé");
-            System.err.println(ioe);
+            ioe.printStackTrace();
         } catch (Exception e) {
-            System.err.println(e);
+            e.printStackTrace();
         }
     }
 }
