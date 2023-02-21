@@ -1,24 +1,16 @@
 package fr.lma.pingpong;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import javafx.util.converter.LocalDateStringConverter;
 import javafx.scene.layout.TilePane;
 import javafx.scene.Parent;
-
-
 import java.io.File;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class AccueilController {
 
@@ -35,23 +27,19 @@ public class AccueilController {
 
     /**
      * Permet d'afficher l'écran de création de tournoi
-     *
-     * @param actionEvent
      */
     @FXML
-    public void afficherSceneCreationTournoi(ActionEvent actionEvent) {
+    public void afficherSceneCreationTournoi() {
         AccueilApplication.setFXMLForStage("creerTournoi.fxml");
     }
 
 
     /**
-     * Permet d'afficher le fenêtre de sélection des fichiers
+     * Permet d'afficher la fenêtre de sélection des fichiers
      * ainsi que de charger le fichier sélectionné
-     *
-     * @param actionEvent
      */
     @FXML
-    public void afficherFileChooser(ActionEvent actionEvent) {
+    public void afficherFileChooser() {
 
         FileChooser fileChooser = new FileChooser();
         File fichierChoisi = fileChooser.showOpenDialog(AccueilApplication.stage);
@@ -86,8 +74,8 @@ public class AccueilController {
 
 
     /**
-     * Appelé au lancement de accueil.fxml et permet d'afficher les tournois dans un TilePane
-     *
+     * Appelé au lancement d'accueil.fxml.
+     * Permet d'afficher les tournois dans un TilePane
      */
     @FXML
     public void initialize() {
@@ -95,25 +83,25 @@ public class AccueilController {
         ArrayList<Tournoi> tournois = AccueilApplication.tournois;
         root = tournoisTilePane.getParent();
 
-        // accroche un evenement meme si on quitte la page
+        // accroche un évènement meme si on quitte la page
         root.addEventHandler(TournoiSupprimeEvent.TOURNOI_SUPPRIME, event -> {
-            System.out.println("Evenement de suppression détecté !!");
+            System.out.println("Évènement de suppression détecté !!");
             tournois.clear();
             tournois.addAll(JSONFichier.lireTousLesFichiersJson());
             tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
 
-            // l'element traité dans le foreach est this et est prit en parametre
+            // l'élément traité dans le foreach est this et est pris en paramètre
             tournois.forEach(this::ajouterTournoiDansTilePane);
         });
 
-        // accroche un evenement meme si on quitte la page
+        // accroche un évènement meme si on quitte la page
         root.addEventHandler(TournoiChargeEvent.TOURNOI_CHARGE, event -> {
-            System.out.println("Evenement de chargement détecté !!");
+            System.out.println("Évènement de chargement détecté !!");
             tournois.clear();
             tournois.addAll(JSONFichier.lireTousLesFichiersJson());
             tournoisTilePane.getChildren().clear(); // supprime tous les AnchorPane existants
 
-            // l'element traité dans le foreach est this et est prit en parametre
+            // l'élément traité dans le foreach est this et est pris en paramètre
             tournois.forEach(this::ajouterTournoiDansTilePane);
         });
 
@@ -123,7 +111,7 @@ public class AccueilController {
     /**
      * Permet d'ajouter chaque tournoi sous forme de AnchorPane dans le TilePane
      *
-     * @param tournoi le tournoi a ajouter
+     * @param tournoi le tournoi à ajouter
      */
     private void ajouterTournoiDansTilePane(Tournoi tournoi) {
         try {
@@ -137,9 +125,4 @@ public class AccueilController {
             e.printStackTrace();
         }
     }
-
-
-
-
-
 }

@@ -1,13 +1,4 @@
 package fr.lma.pingpong;
-
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.io.IOException;
-
 public class Joueur {
 
     // Attributs
@@ -16,6 +7,12 @@ public class Joueur {
 
     // Constructeurs
 
+    /**
+     * Constructeur de la classe joueur
+     *
+     *  @param p_nom nom du joueur
+     * @param p_prenom prénom du joueur
+     */
     public Joueur(String p_nom, String p_prenom) {
         this.nom = p_nom;
         this.prenom = p_prenom;

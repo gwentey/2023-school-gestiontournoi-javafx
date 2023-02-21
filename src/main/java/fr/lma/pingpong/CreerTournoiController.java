@@ -1,15 +1,12 @@
 package fr.lma.pingpong;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
- * Classe controlleur de creerTournoi.fxml
+ * Classe controller de créerTournoi.fxml
  *
  * @author MaximeVeschembes
  */
@@ -34,28 +31,22 @@ public class CreerTournoiController {
     @FXML
     private RadioButton typeTSimple;
     @FXML
-    private RadioButton typeTDouble;
-    @FXML
     private TextField stade;
     @FXML
     private TextField ville;
 
     /**
      * Permet de retourner au menu principal
-     *
-     * @param actionEvent
      */
-    public void afficherSceneMenu(ActionEvent actionEvent) {
+    public void afficherSceneMenu() {
         AccueilApplication.setFXMLForStage("accueil.fxml");
     }
 
 
     /**
-     * Gestion de la création du tournois
-     *
-     * @param actionEvent
+     * Gestion de la création du tournoi
      */
-    public void creerTournoi(ActionEvent actionEvent) {
+    public void creerTournoi() {
 
         int nbJ;
 

@@ -24,14 +24,24 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate dateFin;
     private int nbJoueurs;
-
     private Map<String, Match> matchs = new HashMap<>();
-
     @JsonProperty("joueurs")
     private ArrayList<Joueur> joueurs;
     private String stade;
     private String ville;
 
+    /**
+     * Constructeur de la classe tournoi
+     *
+     * @param p_nom nom du tournoi
+     * @param p_dateDebut date de début du tournoi
+     * @param p_dateFin date de fin du tournoi
+     * @param p_nbJoueurs nombre de joueurs
+     * @param p_matchs matchs
+     * @param p_joueurs joueurs
+     * @param p_stade stade du tournoi
+     * @param p_ville ville du tournoi
+     */
     // Constructeurs
     public Tournoi(String p_nom, LocalDate p_dateDebut, LocalDate p_dateFin, int p_nbJoueurs, Map<String, Match> p_matchs, ArrayList<Joueur> p_joueurs, String p_stade, String p_ville) {
         this.nom = p_nom;
@@ -47,9 +57,8 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     // Nécessaire pour déserialiser
     public Tournoi(){}
 
-    // Accesseurs
 
-    // Getter
+    // Getters
 
     public String getNom() {
         return this.nom;
@@ -74,7 +83,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
     public ArrayList<Joueur> getJoueurs(){return this.joueurs;}
 
     public Match getMatchByIndex(int i) {
-        return this.matchs.get(i);
+        return this.matchs.get(""+i);
     }
 
     public String getStade() {
@@ -85,8 +94,7 @@ public abstract class Tournoi implements Comparable<Tournoi> {
         return this.ville;
     }
 
-    // Setter
-
+    // Setters
     public void setNom(String p_nom) {
         this.nom = p_nom;
     }

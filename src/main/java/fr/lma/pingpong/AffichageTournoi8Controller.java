@@ -1,6 +1,5 @@
 package fr.lma.pingpong;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -9,14 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -32,7 +28,6 @@ public class AffichageTournoi8Controller implements Initializable {
     private TextField villeTournoi;
     @FXML
     private TextField stadeTournoi;
-
     @FXML
     private Circle match1;
     @FXML
@@ -47,22 +42,17 @@ public class AffichageTournoi8Controller implements Initializable {
     private Circle match6;
     @FXML
     private Circle match7;
-
     @FXML
     private Label vainqueur;
 
-    private ArrayList<Circle> circles = new ArrayList<>();
-// ...
-
+    private final ArrayList<Circle> circles = new ArrayList<>();
 
     /**
      * Bouton permettant de revenir au menu d'accueil
-     *
-     * @param actionEvent
      */
-    public void buttonClickMenu(ActionEvent actionEvent) {
+    public void buttonClickMenu() {
 
-        if(nomTournoi.getText() != AccueilApplication.tournoiActuel.getNom() || dateDebutTournoi.getValue() != AccueilApplication.tournoiActuel.getDateDebut()) {
+        if (!nomTournoi.getText().equals(AccueilApplication.tournoiActuel.getNom()) || !dateDebutTournoi.getValue().equals(AccueilApplication.tournoiActuel.getDateDebut())) {
             JSONFichier.supprimerTournoi(AccueilApplication.tournoiActuel);
         }
 
@@ -97,34 +87,35 @@ public class AffichageTournoi8Controller implements Initializable {
         circles.add(this.match7);
 
         Set<String> circleStr = t.getMatchs().keySet();
-        if(t.getMatchs().isEmpty()){
-            for (Circle c:circles){
-                c.setFill(Color.rgb(154,159,167));
+        if (t.getMatchs().isEmpty()) {
+            for (Circle c : circles) {
+                c.setFill(Color.rgb(154, 159, 167));
             }
 
         }
-        for (Circle c:circles){
-            if(circleStr.contains(c.getId())){
-                c.setFill(Color.rgb(24,25,28));
-            }else{
-                c.setFill(Color.rgb(154,159,167));
+        for (Circle c : circles) {
+            if (circleStr.contains(c.getId())) {
+                c.setFill(Color.rgb(24, 25, 28));
+            } else {
+                c.setFill(Color.rgb(154, 159, 167));
             }
         }
-        if(circleStr.contains("match7")){
+        if (circleStr.contains("match7")) {
             Match m = AccueilApplication.tournoiActuel.getMatchs().get("match7");
-            if(m.getScore1()>m.getScore2()){
+            if (m.getScore1() > m.getScore2()) {
                 vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
-            }else{
+            } else {
                 vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
             }
-        }else{
+        } else {
             vainqueur.setText("");
         }
     }
 
-    public void openEditJoueurs(){
+    public void openEditJoueurs() {
         AccueilApplication.setFXMLForStage("tableauJoueurs.fxml");
     }
+
     @FXML
     private void handleCircleClick(MouseEvent event) {
         // récupère du Circle cliqué
@@ -191,21 +182,21 @@ public class AffichageTournoi8Controller implements Initializable {
             Alert noJoueursAlert = new Alert(Alert.AlertType.WARNING);
 
 
-			// Ajouter l'écouteur d'événements pour changer le curseur en pointeur
-			noJoueursAlert.getDialogPane().setOnMouseEntered(event3 -> {
-				Scene scene = noJoueursAlert.getDialogPane().getScene();
-				if (scene != null) {
-					scene.setCursor(Cursor.HAND);
-				}
-			});
+            // Ajouter l'écouteur d'événements pour changer le curseur en pointeur
+            noJoueursAlert.getDialogPane().setOnMouseEntered(event3 -> {
+                Scene scene = noJoueursAlert.getDialogPane().getScene();
+                if (scene != null) {
+                    scene.setCursor(Cursor.HAND);
+                }
+            });
 
-			// Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
-			noJoueursAlert.getDialogPane().setOnMouseExited(event4 -> {
-				Scene scene = noJoueursAlert.getDialogPane().getScene();
-				if (scene != null) {
-					scene.setCursor(Cursor.DEFAULT);
-				}
-			});
+            // Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
+            noJoueursAlert.getDialogPane().setOnMouseExited(event4 -> {
+                Scene scene = noJoueursAlert.getDialogPane().getScene();
+                if (scene != null) {
+                    scene.setCursor(Cursor.DEFAULT);
+                }
+            });
 
             noJoueursAlert.setTitle("Liste de joueurs vide");
             noJoueursAlert.setHeaderText(null);
@@ -255,21 +246,21 @@ public class AffichageTournoi8Controller implements Initializable {
                 Alert warningAlert = new Alert(Alert.AlertType.WARNING);
 
 
-				// Ajouter l'écouteur d'événements pour changer le curseur en pointeur
-				warningAlert.getDialogPane().setOnMouseEntered(event3 -> {
-					Scene scene = warningAlert.getDialogPane().getScene();
-					if (scene != null) {
-						scene.setCursor(Cursor.HAND);
-					}
-				});
+                // Ajouter l'écouteur d'événements pour changer le curseur en pointeur
+                warningAlert.getDialogPane().setOnMouseEntered(event3 -> {
+                    Scene scene = warningAlert.getDialogPane().getScene();
+                    if (scene != null) {
+                        scene.setCursor(Cursor.HAND);
+                    }
+                });
 
-				// Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
-				warningAlert.getDialogPane().setOnMouseExited(event4 -> {
-					Scene scene = warningAlert.getDialogPane().getScene();
-					if (scene != null) {
-						scene.setCursor(Cursor.DEFAULT);
-					}
-				});
+                // Ajouter l'écouteur d'événements pour restaurer le curseur par défaut
+                warningAlert.getDialogPane().setOnMouseExited(event4 -> {
+                    Scene scene = warningAlert.getDialogPane().getScene();
+                    if (scene != null) {
+                        scene.setCursor(Cursor.DEFAULT);
+                    }
+                });
 
                 warningAlert.setTitle("Attention !");
                 warningAlert.setHeaderText(null);
@@ -286,26 +277,26 @@ public class AffichageTournoi8Controller implements Initializable {
                 AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
 
                 Set<String> circleStr = AccueilApplication.tournoiActuel.getMatchs().keySet();
-                for (Circle c:circles){
-                    if(circleStr.contains(c.getId())){
-                        c.setFill(Color.rgb(24,25,28));
-                    }else{
-                        c.setFill(Color.rgb(154,159,167));
+                for (Circle c : circles) {
+                    if (circleStr.contains(c.getId())) {
+                        c.setFill(Color.rgb(24, 25, 28));
+                    } else {
+                        c.setFill(Color.rgb(154, 159, 167));
                     }
                 }
-                if(circleStr.contains("match7")){
+                if (circleStr.contains("match7")) {
                     Match m = AccueilApplication.tournoiActuel.getMatchs().get("match7");
-                    if(m.getScore1()>m.getScore2()){
+                    if (m.getScore1() > m.getScore2()) {
                         vainqueur.setText(m.getJoueur1().getPrenom() + " " + m.getJoueur1().getNom());
-                    }else{
+                    } else {
                         vainqueur.setText(m.getJoueur2().getPrenom() + " " + m.getJoueur2().getNom());
                     }
-                }else{
+                } else {
                     vainqueur.setText("");
                 }
             }
         }
     }
-    }
+}
 
 
