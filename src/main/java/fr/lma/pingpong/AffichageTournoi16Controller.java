@@ -9,11 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class AffichageTournoi16Controller implements Initializable {
     @FXML
@@ -57,6 +59,8 @@ public class AffichageTournoi16Controller implements Initializable {
     private Circle match14;
     @FXML
     private Circle match15;
+    private ArrayList<Circle> circles = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tournoi t = AccueilApplication.tournoiActuel;
@@ -65,7 +69,33 @@ public class AffichageTournoi16Controller implements Initializable {
         this.villeTournoi.setText(t.getVille());
         this.nomTournoi.setText(t.getNom());
         this.stadeTournoi.setText(t.getStade());
-        System.out.println();
+
+        circles.add(this.match1);
+        circles.add(this.match2);
+        circles.add(this.match3);
+        circles.add(this.match4);
+        circles.add(this.match5);
+        circles.add(this.match6);
+        circles.add(this.match7);
+        circles.add(this.match8);
+        circles.add(this.match9);
+        circles.add(this.match10);
+        circles.add(this.match11);
+        circles.add(this.match12);
+        circles.add(this.match13);
+        circles.add(this.match14);
+        circles.add(this.match15);
+
+        Set<String> circleStr = t.getMatchs().keySet();
+        for(int i =0; i<t.getMatchs().size();i++){
+            for (Circle c:circles){
+                if(circleStr.contains(c.getId())){
+                    c.setFill(Color.rgb(24,25,28));
+                }else{
+                    c.setFill(Color.rgb(154,159,167));
+                }
+            }
+        }
     }
 
     /**
@@ -211,6 +241,16 @@ public class AffichageTournoi16Controller implements Initializable {
 
                 AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
 
+                Set<String> circleStr = AccueilApplication.tournoiActuel.getMatchs().keySet();
+                for(int i =0; i<AccueilApplication.tournoiActuel.getMatchs().size();i++){
+                    for (Circle c:circles){
+                        if(circleStr.contains(c.getId())){
+                            c.setFill(Color.rgb(24,25,28));
+                        }else{
+                            c.setFill(Color.rgb(154,159,167));
+                        }
+                    }
+                }
             }
         }
     }

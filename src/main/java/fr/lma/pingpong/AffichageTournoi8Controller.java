@@ -9,12 +9,14 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class AffichageTournoi8Controller implements Initializable {
 
@@ -44,6 +46,7 @@ public class AffichageTournoi8Controller implements Initializable {
     @FXML
     private Circle match7;
 
+    private ArrayList<Circle> circles = new ArrayList<>();
 // ...
 
 
@@ -80,6 +83,24 @@ public class AffichageTournoi8Controller implements Initializable {
         this.villeTournoi.setText(t.getVille());
         this.nomTournoi.setText(t.getNom());
         this.stadeTournoi.setText(t.getStade());
+        circles.add(this.match1);
+        circles.add(this.match2);
+        circles.add(this.match3);
+        circles.add(this.match4);
+        circles.add(this.match5);
+        circles.add(this.match6);
+        circles.add(this.match7);
+
+        Set<String> circleStr = t.getMatchs().keySet();
+        for(int i =0; i<t.getMatchs().size();i++){
+            for (Circle c:circles){
+                if(circleStr.contains(c.getId())){
+                    c.setFill(Color.rgb(24,25,28));
+                }else{
+                    c.setFill(Color.rgb(154,159,167));
+                }
+            }
+        }
     }
 
     public void openEditJoueurs(){
@@ -192,6 +213,17 @@ public class AffichageTournoi8Controller implements Initializable {
                 Match match = new Match(joueur1, joueur2, score1, score2);
 
                 AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
+
+                Set<String> circleStr = AccueilApplication.tournoiActuel.getMatchs().keySet();
+                for(int i =0; i<AccueilApplication.tournoiActuel.getMatchs().size();i++){
+                    for (Circle c:circles){
+                        if(circleStr.contains(c.getId())){
+                            c.setFill(Color.rgb(24,25,28));
+                        }else{
+                            c.setFill(Color.rgb(154,159,167));
+                        }
+                    }
+                }
 
             }
         }

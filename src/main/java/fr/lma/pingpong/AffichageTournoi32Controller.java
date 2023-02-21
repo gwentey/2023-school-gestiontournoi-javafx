@@ -9,11 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class AffichageTournoi32Controller implements Initializable {
     @FXML
@@ -87,6 +89,10 @@ public class AffichageTournoi32Controller implements Initializable {
     private Circle match29;
     @FXML
     private Circle match30;
+    @FXML
+    private Circle match31;
+
+    private ArrayList<Circle> circles = new ArrayList<>();
 
 
     @Override
@@ -97,6 +103,49 @@ public class AffichageTournoi32Controller implements Initializable {
         this.villeTournoi.setText(t.getVille());
         this.nomTournoi.setText(t.getNom());
         this.stadeTournoi.setText(t.getStade());
+
+        circles.add(this.match1);
+        circles.add(this.match2);
+        circles.add(this.match3);
+        circles.add(this.match4);
+        circles.add(this.match5);
+        circles.add(this.match6);
+        circles.add(this.match7);
+        circles.add(this.match8);
+        circles.add(this.match9);
+        circles.add(this.match10);
+        circles.add(this.match11);
+        circles.add(this.match12);
+        circles.add(this.match13);
+        circles.add(this.match14);
+        circles.add(this.match15);
+        circles.add(this.match16);
+        circles.add(this.match17);
+        circles.add(this.match18);
+        circles.add(this.match19);
+        circles.add(this.match20);
+        circles.add(this.match21);
+        circles.add(this.match22);
+        circles.add(this.match23);
+        circles.add(this.match24);
+        circles.add(this.match25);
+        circles.add(this.match26);
+        circles.add(this.match27);
+        circles.add(this.match28);
+        circles.add(this.match29);
+        circles.add(this.match30);
+        circles.add(this.match31);
+
+        Set<String> circleStr = t.getMatchs().keySet();
+        for(int i =0; i<t.getMatchs().size();i++){
+            for (Circle c:circles){
+                if(circleStr.contains(c.getId())){
+                    c.setFill(Color.rgb(24,25,28));
+                }else{
+                    c.setFill(Color.rgb(154,159,167));
+                }
+            }
+        }
     }
 
     /**
@@ -242,6 +291,16 @@ public class AffichageTournoi32Controller implements Initializable {
 
                 AccueilApplication.tournoiActuel.ajouterMatch(circle.getId(), match);
 
+                Set<String> circleStr = AccueilApplication.tournoiActuel.getMatchs().keySet();
+                for(int i =0; i<AccueilApplication.tournoiActuel.getMatchs().size();i++){
+                    for (Circle c:circles){
+                        if(circleStr.contains(c.getId())){
+                            c.setFill(Color.rgb(24,25,28));
+                        }else{
+                            c.setFill(Color.rgb(154,159,167));
+                        }
+                    }
+                }
             }
         }
     }
